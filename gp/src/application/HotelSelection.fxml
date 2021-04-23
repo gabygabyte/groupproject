@@ -17,8 +17,8 @@
       </ImageView>
       <Button fx:id="bestwestern" layoutX="289.0" layoutY="84.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="132.0" stylesheets="@../../bin/application/application.css" />
       <Button fx:id="wyndham" layoutX="486.0" layoutY="84.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="132.0" stylesheets="@../../bin/application/application.css" />
-      <Button fx:id="next" layoutX="400.0" layoutY="328.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="152.0" text="Next" />
-      <Button fx:id="clear" layoutX="155.0" layoutY="328.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" text="Clear" />
+      <Button fx:id="next" layoutX="400.0" layoutY="328.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="152.0" />
+      <Button fx:id="clear" layoutX="155.0" layoutY="328.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="152.0" />
       <Button fx:id="home" layoutX="631.0" layoutY="14.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="65.0" />
       <Button fx:id="radisson" layoutX="89.0" layoutY="84.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="132.0" stylesheets="@../../bin/application/application.css" />
       <Button fx:id="hilton" layoutX="89.0" layoutY="212.0" mnemonicParsing="false" prefHeight="94.0" prefWidth="132.0" stylesheets="@../../bin/application/application.css" />

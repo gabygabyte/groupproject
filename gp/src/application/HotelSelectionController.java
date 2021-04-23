@@ -20,28 +20,4 @@ public class HotelSelectionController {
 
 
 	
-	@FXML
-	private AnchorPane mainPane;
-	
-	/*
-	 * This method will display the NeedGive interface when the appropriate button
-	 * is selected and also set the selection variable in the NeedGIveController class 
-	 * to the ID of the button selected
-	 */
-	
-	
-	/*
-	 * This method will display the Inventory interface when the user
-	 * clicks on the appropriate button
-	 */
-	@FXML
-	public void clickInventory(ActionEvent event) throws IOException {
-		
-		mainPane = FXMLLoader.load(getClass().getResource("Inventory.fxml")); //
-		Scene scene = new Scene(mainPane);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-		window.setScene(scene);
-		window.show();
-	}
 }

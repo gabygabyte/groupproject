@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+<AnchorPane fx:id="mainBack" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
    <children>
       <ImageView fitHeight="700.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -24,7 +24,7 @@
       </ImageView>
       <Pane layoutX="223.0" layoutY="54.0" prefHeight="108.0" prefWidth="265.0">
          <children>
-            <Button fx:id="book" layoutX="33.0" layoutY="22.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="199.0">
+            <Button fx:id="book" layoutX="33.0" layoutY="22.0" mnemonicParsing="false" onAction="#goToHotels" opacity="0.0" prefHeight="65.0" prefWidth="199.0">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor></Button>
@@ -37,14 +37,15 @@
       </Pane>
       <Pane layoutX="229.0" layoutY="162.0" prefHeight="108.0" prefWidth="253.0">
          <children>
-            <Button fx:id="editView" layoutX="19.0" layoutY="22.0" mnemonicParsing="false" prefHeight="65.0" prefWidth="221.0" text=" ">
+            <Button fx:id="editView" layoutX="26.0" layoutY="29.0" mnemonicParsing="false" onAction="#goToViewEdit" opacity="0.0" prefHeight="65.0" prefWidth="221.0" text=" ">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor></Button>
-            <ImageView fitHeight="130.0" fitWidth="273.0" layoutX="-7.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="130.0" fitWidth="273.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../bin/application/viewEdit.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </children>
       </Pane>
    </children>

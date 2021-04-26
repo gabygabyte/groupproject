@@ -11,7 +11,8 @@
 #editView{
 
 }
+
 #editingPanel{
-	-fx-background-image:url("photos/blue-background.jpg");
+	-fx-background-image:url("blue-background.jpg");
 	-fx-background-size: 100% 100%;
 }

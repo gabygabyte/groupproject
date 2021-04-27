@@ -1,9 +1,16 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 public class BookingController {
 
@@ -11,7 +18,7 @@ public class BookingController {
     private TextField NumChild;
 
     @FXML
-    private Button next;
+    private Button save;
 
     @FXML
     private TextField NumAdults;
@@ -36,15 +43,25 @@ public class BookingController {
 
     @FXML
     private TextField BookingName;
+    
+    @FXML
+    private AnchorPane bookingBack;
 
     @FXML
-    void goBack(ActionEvent event) {
-
+    void goBack(ActionEvent event) throws IOException {
+    	FXMLLoader loader = new FXMLLoader(getClass().getResource("HotelSelection.fxml"));
+    	bookingBack = loader.load();  	
+    	Scene scene = new Scene(bookingBack);
+    	Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    	window.setScene(scene);
+    	window.show();
     }
 
     @FXML
-    void goToNext(ActionEvent event) {
-
+    void saveBooking(ActionEvent event) {
+    	
+    	
+  
     }
 
 }

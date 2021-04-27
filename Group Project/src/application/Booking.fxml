@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="410.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookingController">
+<AnchorPane fx:id="bookingBack" prefHeight="410.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookingController">
    <children>
       <ImageView fitHeight="411.0" fitWidth="641.0" layoutX="47.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" scaleX="1.17" scaleY="1.02">
          <image>
@@ -68,10 +68,10 @@
             <Image url="@../../bin/application/back.png" />
          </image>
       </ImageView>
-      <Button fx:id="next" layoutX="526.0" layoutY="358.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
+      <Button fx:id="save" layoutX="526.0" layoutY="358.0" mnemonicParsing="false" onAction="#saveBooking" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
       <ImageView fitHeight="116.0" fitWidth="169.0" layoutX="502.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../bin/application/next.png" />
+            <Image url="@../../bin/application/save.png" />
          </image>
       </ImageView>
    </children>

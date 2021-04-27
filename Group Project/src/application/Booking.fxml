@@ -9,7 +9,7 @@
 
 <AnchorPane fx:id="bookingBack" prefHeight="410.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookingController">
    <children>
-      <ImageView fitHeight="411.0" fitWidth="641.0" layoutX="47.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" scaleX="1.17" scaleY="1.02">
+      <ImageView fitHeight="411.0" fitWidth="641.0" layoutX="43.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true" scaleX="1.17" scaleY="1.02">
          <image>
             <Image url="@../../bin/application/bookback.png" />
          </image>
@@ -30,12 +30,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="150.0" text="Check in:" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="150.0" text="Check in: mm/dd/yyy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="190.0" text="Check out: " textFill="WHITE">
+      <Label layoutX="35.0" layoutY="190.0" text="Check out: mm/dd/yyyy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -50,7 +50,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="310.0" text="Number of Children:" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="310.0" text="Number of Children: (enter 0 if none)" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

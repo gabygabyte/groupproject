@@ -9,53 +9,70 @@
 
 <AnchorPane prefHeight="410.0" prefWidth="710.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BookingController">
    <children>
-      <TextField fx:id="NumAdults" layoutX="526.0" layoutY="325.0" />
-      <Label layoutX="35.0" layoutY="25.0" text="Hotel:">
+      <ImageView fitHeight="411.0" fitWidth="641.0" layoutX="47.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true" scaleX="1.17" scaleY="1.02">
+         <image>
+            <Image url="@../../bin/application/bookback.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="NumAdults" layoutX="526.0" layoutY="270.0" />
+      <Label layoutX="35.0" layoutY="30.0" text="Hotel:" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="75.0" text="Name:">
+      <Label layoutX="35.0" layoutY="70.0" text="Name:" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="125.0" text="Email address: ">
+      <Label layoutX="35.0" layoutY="110.0" text="Email address: " textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="175.0" text="Check in:">
+      <Label layoutX="35.0" layoutY="150.0" text="Check in:" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="225.0" text="Check out: ">
+      <Label layoutX="35.0" layoutY="190.0" text="Check out: " textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="275.0" text="Number of Rooms:">
+      <Label layoutX="35.0" layoutY="230.0" text="Number of Rooms:" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="325.0" text="Number of Adults: ">
+      <Label layoutX="35.0" layoutY="270.0" text="Number of Adults: " textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="370.0" text="Number of Children:">
+      <Label layoutX="35.0" layoutY="310.0" text="Number of Children:" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="HotelName" layoutX="526.0" layoutY="25.0" />
-      <TextField fx:id="BookingName" layoutX="526.0" layoutY="75.0" />
-      <TextField fx:id="Email" layoutX="526.0" layoutY="125.0" />
-      <TextField fx:id="CheckIn" layoutX="526.0" layoutY="175.0" />
-      <TextField fx:id="CheckOut" layoutX="526.0" layoutY="225.0" />
-      <TextField fx:id="NumRooms" layoutX="526.0" layoutY="275.0" />
-      <TextField fx:id="NumChild" layoutX="526.0" layoutY="370.0" />
+      <TextField fx:id="HotelName" layoutX="526.0" layoutY="30.0" />
+      <TextField fx:id="BookingName" layoutX="526.0" layoutY="70.0" />
+      <TextField fx:id="Email" layoutX="526.0" layoutY="110.0" />
+      <TextField fx:id="CheckIn" layoutX="526.0" layoutY="150.0" />
+      <TextField fx:id="CheckOut" layoutX="526.0" layoutY="190.0" />
+      <TextField fx:id="NumRooms" layoutX="526.0" layoutY="230.0" />
+      <TextField fx:id="NumChild" layoutX="526.0" layoutY="310.0" />
+      <Button fx:id="prev" layoutX="55.0" layoutY="358.0" mnemonicParsing="false" onAction="#goBack" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
+      <ImageView fitHeight="68.0" fitWidth="151.0" layoutX="41.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../bin/application/back.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="next" layoutX="526.0" layoutY="358.0" mnemonicParsing="false" onAction="#goToNext" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
+      <ImageView fitHeight="116.0" fitWidth="169.0" layoutX="502.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../bin/application/next.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

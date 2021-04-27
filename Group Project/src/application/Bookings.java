@@ -1,6 +1,6 @@
 package application;
 
-public class Booking {
+public class Bookings {
 	
 	String Hotels;
 	String Email;

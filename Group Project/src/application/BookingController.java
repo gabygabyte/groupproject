@@ -91,18 +91,29 @@ public class BookingController {
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
     	}
     	
-    	if (fields == "") {
+    	if (fields.isEmpty()) {
     		// Create and set booking
-    		Booking b = new Booking();
-    		b.setHotels(HotelName.getText());
-    		b.setEmail(Email.getText());
-    		b.setCheckIn(CheckIn.getText());
-    		b.setCheckOut(CheckOut.getText());
-    		b.setNumRooms(Integer.parseInt(NumRooms.getText()));
-    		b.setNumAdults(Integer.parseInt(NumAdults.getText()));
-    		b.setNumChild(Integer.parseInt(NumChild.getText()));
+    		//Bookings b = new Bookings();
+    		//b.setHotels(HotelName.getText());
+    		//b.setEmail(Email.getText());
+    		//b.setCheckIn(CheckIn.getText());
+    		//b.setCheckOut(CheckOut.getText());
+    		//b.setNumRooms(Integer.parseInt(NumRooms.getText()));
+    		//b.setNumAdults(Integer.parseInt(NumAdults.getText()));
+    		//b.setNumChild(Integer.parseInt(NumChild.getText()));
     	
-    		HashMap<String, Object> h = new HashMap<String, Object>();
+    		String hotels = HotelName.getText();
+    		String emailAddress = Email.getText();
+    		String checkInDate = CheckIn.getText();
+    		String checkOutDate = CheckOut.getText();
+    		int rooms = Integer.parseInt(NumRooms.getText());
+    		int adults = Integer.parseInt(NumAdults.getText());
+    		int children = Integer.parseInt(NumChild.getText());
+    		
+    		String Bookings = hotels + "," + emailAddress + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
+    		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
+    		
+    		HashMap<String, String> h = new HashMap<String, String>();
     		File file = new File("bookings.properties");
     		FileInputStream reader = new FileInputStream(file);
     		Properties properties = new Properties();
@@ -113,15 +124,16 @@ public class BookingController {
     			h.put(key, properties.get(key).toString());
     		}	
     	
-    		h.put(BookingName.getText(), b);
+    		h.put(BookingName.getText().toString(), Bookings);
     		properties.putAll(h);
     		FileOutputStream writer = new FileOutputStream(file);
     		properties.store(writer, null);
+    		writer.close();
     	
     		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully saved!" 
     			+ "\nYour information has been sent to the selected hotels and you will hear "
     			+ "from them shortly. \nYou can select the view/edit option on the main menu"
-    			+ "if you would like to edit your booking.").showAndWait();
+    			+ " if you would like to edit your booking.").showAndWait();
     		
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
         	bookingBack = loader.load();  	

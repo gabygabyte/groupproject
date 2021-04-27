@@ -15,7 +15,7 @@
          </image>
       </ImageView>
       <TextField fx:id="NumAdults" layoutX="526.0" layoutY="270.0" />
-      <Label layoutX="35.0" layoutY="30.0" text="Hotel:" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="30.0" text="Hotel(s):" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
@@ -30,12 +30,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="150.0" text="Check in: mm/dd/yyy" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="150.0" text="Check in: mm/dd/yy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="190.0" text="Check out: mm/dd/yyyy" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="190.0" text="Check out: mm/dd/yy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

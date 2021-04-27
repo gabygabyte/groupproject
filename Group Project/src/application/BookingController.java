@@ -66,6 +66,11 @@ public class BookingController {
     void saveBooking(ActionEvent event) throws IOException {
     	//Check for empty fields
     	String fields = "";
+    	
+    	if(BookingName.getText().isEmpty()) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
+    	}
     	if(Email.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();

@@ -68,11 +68,11 @@
          </image>
       </ImageView>
       <Button fx:id="prev" layoutX="55.0" layoutY="358.0" mnemonicParsing="false" onAction="#goBack" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
-      <Button fx:id="save" layoutX="526.0" layoutY="358.0" mnemonicParsing="false" onAction="#saveBooking" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
       <ImageView fitHeight="116.0" fitWidth="169.0" layoutX="502.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../bin/application/save.png" />
          </image>
       </ImageView>
+      <Button fx:id="save" layoutX="526.0" layoutY="358.0" mnemonicParsing="false" onAction="#saveBooking" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
    </children>
 </AnchorPane>

@@ -62,12 +62,12 @@
       <TextField fx:id="CheckOut" layoutX="526.0" layoutY="190.0" />
       <TextField fx:id="NumRooms" layoutX="526.0" layoutY="230.0" />
       <TextField fx:id="NumChild" layoutX="526.0" layoutY="310.0" />
-      <Button fx:id="prev" layoutX="55.0" layoutY="358.0" mnemonicParsing="false" onAction="#goBack" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
       <ImageView fitHeight="68.0" fitWidth="151.0" layoutX="41.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../bin/application/back.png" />
          </image>
       </ImageView>
+      <Button fx:id="prev" layoutX="55.0" layoutY="358.0" mnemonicParsing="false" onAction="#goBack" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
       <Button fx:id="save" layoutX="526.0" layoutY="358.0" mnemonicParsing="false" onAction="#saveBooking" opacity="0.0" prefHeight="30.0" prefWidth="120.0" text="Button" />
       <ImageView fitHeight="116.0" fitWidth="169.0" layoutX="502.0" layoutY="335.0" pickOnBounds="true" preserveRatio="true">
          <image>

@@ -42,12 +42,6 @@ public class HotelSelectionController {
 	
 	}
 	
-	@FXML
-	public void bookingScene(ActionEvent event) throws IOException {
-		
-	
-	}
-	
 	
 	@FXML
 	public void setHotel(ActionEvent event) throws IOException {
@@ -58,6 +52,17 @@ public class HotelSelectionController {
 	@FXML
 	public void clearHotels(ActionEvent event) throws IOException {
 		
+	
+	}
+	
+	@FXML
+	public void bookingScene(ActionEvent event) throws IOException {
+		mainPane = FXMLLoader.load(getClass().getResource("Booking.fxml")); //
+		Scene scene = new Scene(mainPane);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
 	
 	}
 }

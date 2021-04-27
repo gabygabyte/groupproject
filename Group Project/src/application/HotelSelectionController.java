@@ -88,18 +88,6 @@ public class HotelSelectionController {
 	
 	
 	
-	
-	/*
-	 * WILL PASS HOTELS SOMEHOW. THIS REMAINS TO BE FIGURED OUT. 
-	 */
-	
-	public void getHotels() throws IOException {
-		
-	
-	}
-	
-	
-	
 	/*
 	 * This method will clear any hotels that had been saved in the 
 	 * hotelsArray array. It will also clear hotelSelection and set
@@ -169,6 +157,7 @@ public class HotelSelectionController {
 	
 	/*
 	 * This method will take user to the booking scene
+	 * when they select a button
 	 */
 	@FXML
 	public void bookingScene(ActionEvent event) throws IOException {

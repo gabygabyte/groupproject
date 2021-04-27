@@ -13,7 +13,7 @@
 }
 
 #editingPanel{
-	-fx-background-image:url("blue-background.jpg");
+
 	-fx-background-size: 100% 100%;
 }
 
@@ -54,98 +54,98 @@
   -fx-font-size: 20px;
   -fx-border-radius: 30px;
 }
-#home:clear {
+#clear:hover {
    -fx-background-color: #234769;
   -fx-background-color: linear-gradient(to top, #234769, #EEEBE9);
    }
 
-#radisson{
+#Radisson{
 	
 	-fx-background-image:url("radisson.jpg");
 	-fx-background-size:100% 100%;
 	-fx-border-color: #000000; 
 	-fx-border-width: 2px;
-}#radisson:hover {
+}#Radisson:hover {
    -fx-border-color: #000000; 
 	-fx-border-width: 5px;
    }
-#radisson:focused {
+#Radisson:focused {
    -fx-border-color: #ffffff; 
 	-fx-border-width: 5px;
    }
 
-#bestwestern{
+#Bestwestern{
 	
 	-fx-background-image:url("bestwestern.jpg");
 	-fx-background-size:100% 100%;
 	-fx-border-color: #000000; 
 	-fx-border-width: 2px;
 }
-#bestwestern:hover {
+#Bestwestern:hover {
    -fx-border-color: #000000; 
 	-fx-border-width: 5px;
    }
-   #bestwestern:focused {
+   #Bestwestern:focused {
    -fx-border-color: #ffffff; 
 	-fx-border-width: 5px;
    }
 
-#wyndham{
+#Wyndham{
 	
 	-fx-background-image:url("wyndham.jpg");
 	-fx-background-size:100% 100%;
 	-fx-border-color: #000000; 
 	-fx-border-width: 2px;
-}#wyndham:hover {
+}#Wyndham:hover {
    -fx-border-color: #000000; 
 	-fx-border-width: 5px;
    }
-#wyndham:focused {
+#Wyndham:focused {
    -fx-border-color: #ffffff; 
 	-fx-border-width: 5px;
  }
 
-#hilton{
+#Hilton{
 	
 	-fx-background-image:url("hilton.jpg");
 	-fx-background-size:100% 100%;
 	-fx-border-color: #000000; 
 	-fx-border-width: 2px;
-}#hilton:hover {
+}#Hilton:hover {
    -fx-border-color: #000000; 
 	-fx-border-width: 5px;
    }
-   #hilton:focused {
+   #Hilton:focused {
    -fx-border-color: #ffffff; 
 	-fx-border-width: 5px;
    }
 
-#hyatt{
+#Hyatt{
 	
 	-fx-background-image:url("hyatt.jpg");
 	-fx-background-size:100% 100%;
 	-fx-border-color: #000000; 
 	-fx-border-width: 2px;
-}#hyatt:hover {
+}#Hyatt:hover {
    -fx-border-color: #000000; 
 	-fx-border-width: 5px;
    }
-   #hyatt:focused {
+   #Hyatt:focused {
    -fx-border-color: #ffffff; 
 	-fx-border-width: 5px;
    }
 
-#marriot{
+#Marriot{
 	
 	-fx-background-image:url("marriot.jpg");
 	-fx-background-size:100% 100%;
 	-fx-border-color: #000000; 
 	-fx-border-width: 2px;
-}#marriot:hover {
+}#Marriot:hover {
    -fx-border-color: #000000; 
 	-fx-border-width: 5px;
    }
-   #marriot:focused {
+   #Marriot:focused {
    -fx-border-color: #ffffff; 
 	-fx-border-width: 5px;
    }

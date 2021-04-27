@@ -92,16 +92,7 @@ public class BookingController {
     	}
     	
     	if (fields.isEmpty()) {
-    		// Create and set booking
-    		//Bookings b = new Bookings();
-    		//b.setHotels(HotelName.getText());
-    		//b.setEmail(Email.getText());
-    		//b.setCheckIn(CheckIn.getText());
-    		//b.setCheckOut(CheckOut.getText());
-    		//b.setNumRooms(Integer.parseInt(NumRooms.getText()));
-    		//b.setNumAdults(Integer.parseInt(NumAdults.getText()));
-    		//b.setNumChild(Integer.parseInt(NumChild.getText()));
-    	
+    		// Set Variables from text fields
     		String hotels = HotelName.getText();
     		String emailAddress = Email.getText();
     		String checkInDate = CheckIn.getText();
@@ -110,9 +101,11 @@ public class BookingController {
     		int adults = Integer.parseInt(NumAdults.getText());
     		int children = Integer.parseInt(NumChild.getText());
     		
+    		// Merge variables into one string to be stored in hashmap
     		String Bookings = hotels + "," + emailAddress + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
+    		// Create hashmap
     		HashMap<String, String> h = new HashMap<String, String>();
     		File file = new File("bookings.properties");
     		FileInputStream reader = new FileInputStream(file);
@@ -123,18 +116,29 @@ public class BookingController {
     		for(String key: properties.stringPropertyNames()) {
     			h.put(key, properties.get(key).toString());
     		}	
+    		
+    		// Check for prev bookings under given name
     	
+    		// If no prev bookings with same name, store info into hashmap
     		h.put(BookingName.getText().toString(), Bookings);
+    		
+    		// Store hashmap into propreties 
     		properties.putAll(h);
+    		
+    		// Write propreties to file
     		FileOutputStream writer = new FileOutputStream(file);
     		properties.store(writer, null);
+    		
+    		// Close writer
     		writer.close();
-    	
+    		
+    		// Display confirmation message
     		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully saved!" 
     			+ "\nYour information has been sent to the selected hotels and you will hear "
     			+ "from them shortly. \nYou can select the view/edit option on the main menu"
     			+ " if you would like to edit your booking.").showAndWait();
     		
+    		// Return to main page
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
         	bookingBack = loader.load();  	
         	Scene scene = new Scene(bookingBack);

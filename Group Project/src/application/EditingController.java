@@ -70,10 +70,10 @@ public class EditingController
         	h.put(key, properties.get(key).toString());
         }
     	 if(h.containsKey(compKey)){//check if there's a key in the hash map that matches 
- 	       	info = h.get(compKey); //set val to quantity of item
+ 	       	info = h.get(compKey); //set info to quantity of item
          }
     	 else {
-    		info = "Invalid name";//set val to show there's none in stock
+    		info = "Invalid name";//set info to show there's none in stock
     	 }
     	 
     	 System.out.println(info);

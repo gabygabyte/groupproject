@@ -43,7 +43,7 @@
                   <Font size="24.0" />
                </font>
             </Label>
-            <Button layoutX="600.0" layoutY="70.0" mnemonicParsing="false" text="Edit">
+            <Button layoutX="565.0" layoutY="70.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
@@ -55,33 +55,33 @@
             <TextField layoutX="276.0" layoutY="190.0" />
             <TextField layoutX="276.0" layoutY="130.0" />
             <TextField layoutX="276.0" layoutY="70.0" />
-            <Button layoutX="600.0" layoutY="130.0" mnemonicParsing="false" text="Edit">
+            <Button layoutX="565.0" layoutY="130.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <Button layoutX="600.0" layoutY="190.0" mnemonicParsing="false" text="Edit">
+            <Button layoutX="565.0" layoutY="190.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <Button layoutX="600.0" layoutY="250.0" mnemonicParsing="false" text="Edit">
+            <Button layoutX="565.0" layoutY="250.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <Button layoutX="600.0" layoutY="310.0" mnemonicParsing="false" text="Edit">
+            <Button layoutX="565.0" layoutY="310.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <Button layoutX="600.0" layoutY="370.0" mnemonicParsing="false" text="Edit">
+            <Button layoutX="565.0" layoutY="370.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
             <Label layoutX="3.0" layoutY="10.0" prefHeight="410.0" prefWidth="549.0" />
-            <Label layoutX="553.0" layoutY="7.0" prefHeight="412.0" prefWidth="178.0" />
+            <Button layoutX="658.0" layoutY="16.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="52.0" text="Home" />
          </children>
       </AnchorPane>
    </children>

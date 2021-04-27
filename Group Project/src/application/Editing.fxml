@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -13,32 +14,32 @@
    <children>
       <AnchorPane fx:id="editingPanel" layoutX="-8.0" layoutY="-8.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="418.0" prefWidth="728.0" stylesheets="@application.css">
          <children>
-            <Label layoutX="50.0" layoutY="70.0" text="Hotel:">
+            <Label layoutX="50.0" layoutY="70.0" text="Hotel:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="130.0" text="Check in:">
+            <Label layoutX="50.0" layoutY="130.0" text="Check in:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="190.0" text="Check out:">
+            <Label layoutX="50.0" layoutY="190.0" text="Check out:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="250.0" text="Number of Rooms:">
+            <Label layoutX="50.0" layoutY="250.0" text="Number of Rooms:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="310.0" text="Number of Adults:">
+            <Label layoutX="50.0" layoutY="310.0" text="Number of Adults:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label layoutX="50.0" layoutY="370.0" text="Number of Children:">
+            <Label layoutX="50.0" layoutY="370.0" text="Number of Children:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
@@ -48,13 +49,13 @@
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <TextField layoutX="276.0" layoutY="370.0" />
-            <TextField layoutX="50.0" layoutY="25.0" prefHeight="27.0" prefWidth="328.0" />
-            <TextField layoutX="276.0" layoutY="310.0" />
-            <TextField layoutX="276.0" layoutY="250.0" />
-            <TextField layoutX="276.0" layoutY="190.0" />
-            <TextField layoutX="276.0" layoutY="130.0" />
-            <TextField layoutX="276.0" layoutY="70.0" />
+            <TextField fx:id="childrenText" layoutX="276.0" layoutY="370.0" />
+            <TextField fx:id="nameText" layoutX="50.0" layoutY="25.0" prefHeight="27.0" prefWidth="328.0" />
+            <TextField fx:id="adultsText" layoutX="276.0" layoutY="310.0" />
+            <TextField fx:id="roomText" layoutX="276.0" layoutY="250.0" />
+            <TextField fx:id="checkoutText" layoutX="276.0" layoutY="190.0" />
+            <TextField fx:id="checkinText" layoutX="276.0" layoutY="130.0" />
+            <TextField fx:id="hotelText" layoutX="276.0" layoutY="70.0" />
             <Button layoutX="500.0" layoutY="130.0" mnemonicParsing="false" text="Edit">
                <padding>
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
@@ -80,9 +81,8 @@
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <Label layoutX="3.0" layoutY="10.0" prefHeight="410.0" prefWidth="549.0" />
             <Button layoutX="623.0" layoutY="108.0" mnemonicParsing="false" onAction="#toHome" prefHeight="71.0" prefWidth="81.0" text="Home" />
-            <Button layoutX="399.0" layoutY="25.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="81.0" text="Search" />
+            <Button layoutX="399.0" layoutY="25.0" mnemonicParsing="false" onAction="#Search" prefHeight="27.0" prefWidth="81.0" text="Search" />
             <Button layoutX="623.0" layoutY="209.0" mnemonicParsing="false" onAction="#Update" prefHeight="71.0" prefWidth="81.0" text="Update" />
          </children>
       </AnchorPane>

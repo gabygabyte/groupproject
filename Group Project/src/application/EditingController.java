@@ -25,4 +25,15 @@ public class EditingController
 		window.setScene(scene);
 		window.show();
 	}
+	
+	@FXML
+	public void Update(ActionEvent event) throws IOException {
+		
+		editingPanel = FXMLLoader.load(getClass().getResource("Main.fxml")); 
+		Scene scene = new Scene(editingPanel);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		window.setScene(scene);
+		window.show();
+	}
 }

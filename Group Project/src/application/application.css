@@ -16,3 +16,188 @@
 	-fx-background-image:url("blue-background.jpg");
 	-fx-background-size: 100% 100%;
 }
+
+
+/* 
+ * Hotel Selection Scene
+ */
+
+#background{
+	
+	-fx-background-image:url("hotelbackground.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}
+
+#hotelSelected {
+
+  -fx-background-color: #121212;
+  -fx-background-color: linear-gradient(to top, #121212, #E3E3E3);
+  -fx-font-family: arial;
+  -fx-font-weight: bold;
+  -fx-font-size: 25px;
+  -fx-border-radius: 15px;
+  
+}
+#hotelSelected:hover {
+   -fx-background-color: #234769;
+  -fx-background-color: linear-gradient(to top, #234769, #EEEBE9);
+   }
+   
+#clear{
+	
+-fx-background-color: #121212;
+  -fx-background-color: linear-gradient(to top, #121212, #E3E3E3);
+  -fx-font-family: arial;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+  -fx-border-radius: 30px;
+}
+#home:clear {
+   -fx-background-color: #234769;
+  -fx-background-color: linear-gradient(to top, #234769, #EEEBE9);
+   }
+
+#radisson{
+	
+	-fx-background-image:url("radisson.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}#radisson:hover {
+   -fx-border-color: #000000; 
+	-fx-border-width: 5px;
+   }
+#radisson:focused {
+   -fx-border-color: #ffffff; 
+	-fx-border-width: 5px;
+   }
+
+#bestwestern{
+	
+	-fx-background-image:url("bestwestern.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}
+#bestwestern:hover {
+   -fx-border-color: #000000; 
+	-fx-border-width: 5px;
+   }
+   #bestwestern:focused {
+   -fx-border-color: #ffffff; 
+	-fx-border-width: 5px;
+   }
+
+#wyndham{
+	
+	-fx-background-image:url("wyndham.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}#wyndham:hover {
+   -fx-border-color: #000000; 
+	-fx-border-width: 5px;
+   }
+#wyndham:focused {
+   -fx-border-color: #ffffff; 
+	-fx-border-width: 5px;
+ }
+
+#hilton{
+	
+	-fx-background-image:url("hilton.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}#hilton:hover {
+   -fx-border-color: #000000; 
+	-fx-border-width: 5px;
+   }
+   #hilton:focused {
+   -fx-border-color: #ffffff; 
+	-fx-border-width: 5px;
+   }
+
+#hyatt{
+	
+	-fx-background-image:url("hyatt.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}#hyatt:hover {
+   -fx-border-color: #000000; 
+	-fx-border-width: 5px;
+   }
+   #hyatt:focused {
+   -fx-border-color: #ffffff; 
+	-fx-border-width: 5px;
+   }
+
+#marriot{
+	
+	-fx-background-image:url("marriot.jpg");
+	-fx-background-size:100% 100%;
+	-fx-border-color: #000000; 
+	-fx-border-width: 2px;
+}#marriot:hover {
+   -fx-border-color: #000000; 
+	-fx-border-width: 5px;
+   }
+   #marriot:focused {
+   -fx-border-color: #ffffff; 
+	-fx-border-width: 5px;
+   }
+
+
+#next {
+
+  -fx-background-color: #121212;
+  -fx-background-color: linear-gradient(to top, #121212, #E3E3E3);
+  -fx-font-family: arial;
+  -fx-font-weight: bold;
+  -fx-font-size: 30px;
+  -fx-padding: 10px 25px;
+  -fx-border-radius: 15px;
+  
+}
+#next:hover {
+   -fx-background-color: #234769;
+  -fx-background-color: linear-gradient(to top, #234769, #EEEBE9);
+   }
+
+#home{
+	
+-fx-background-color: #121212;
+  -fx-background-color: linear-gradient(to top, #121212, #E3E3E3);
+  -fx-font-family: arial;
+  -fx-font-weight: bold;
+  -fx-font-size: 20px;
+  -fx-border-radius: 30px;
+}
+#home:hover {
+   -fx-background-color: #234769;
+  -fx-background-color: linear-gradient(to top, #234769, #EEEBE9);
+   }
+
+#add {
+
+  -fx-background-color: #121212;
+  -fx-background-color: linear-gradient(to top, #121212, #E3E3E3);
+  -fx-font-family: arial;
+  -fx-font-weight: bold;
+  -fx-font-size: 30px;
+  -fx-padding: 10px 25px;
+  -fx-border-radius: 15px;
+  
+}
+#add:hover {
+   -fx-background-color: #234769;
+  -fx-background-color: linear-gradient(to top, #234769, #EEEBE9);
+   }
+   
+#hotelselectiontitle {
+	
+}
+

@@ -15,16 +15,16 @@
             <Image url="@../../bin/application/hotelbackground.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="bestwestern" layoutX="289.0" layoutY="84.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
-      <Button fx:id="wyndham" layoutX="486.0" layoutY="84.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
+      <Button fx:id="Bestwestern" layoutX="289.0" layoutY="84.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
+      <Button fx:id="Wyndham" layoutX="486.0" layoutY="84.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
       <Button fx:id="next" layoutX="400.0" layoutY="328.0" mnemonicParsing="false" onAction="#bookingScene" prefHeight="45.0" prefWidth="152.0" stylesheets="@application.css" text="Next" textFill="WHITE" />
       <Button fx:id="add" layoutX="155.0" layoutY="328.0" mnemonicParsing="false" onAction="#addHotel" prefHeight="51.0" prefWidth="152.0" stylesheets="@application.css" text="Add" textFill="WHITE" />
       <Button fx:id="home" layoutX="611.0" layoutY="15.0" mnemonicParsing="false" onAction="#clickHome" prefHeight="33.0" prefWidth="85.0" stylesheets="@application.css" text="Home" textFill="WHITE" />
-      <Button fx:id="radisson" layoutX="89.0" layoutY="84.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
-      <Button fx:id="hilton" layoutX="89.0" layoutY="212.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
-      <Button fx:id="hyatt" layoutX="289.0" layoutY="212.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
-      <Button fx:id="marriot" layoutX="486.0" layoutY="212.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
-      <Button fx:id="hotelSelected" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" onAction="#hotelSelected" prefHeight="43.0" prefWidth="453.0" stylesheets="@application.css" text="Select your favorite hotel chains" textFill="WHITE" />
+      <Button fx:id="Radisson" layoutX="89.0" layoutY="84.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
+      <Button fx:id="Hilton" layoutX="89.0" layoutY="212.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
+      <Button fx:id="Hyatt" layoutX="297.0" layoutY="212.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
+      <Button fx:id="Marriot" layoutX="486.0" layoutY="212.0" mnemonicParsing="false" onAction="#setHotel" prefHeight="94.0" prefWidth="132.0" stylesheets="@application.css" />
+      <Button fx:id="hotelSelected" layoutX="129.0" layoutY="10.0" mnemonicParsing="false" onAction="#displayHotelArray" prefHeight="43.0" prefWidth="453.0" stylesheets="@application.css" text="Select your favorite hotel chains" textFill="WHITE" />
       <Button fx:id="clear" layoutX="14.0" layoutY="16.0" mnemonicParsing="false" onAction="#clearHotels" prefHeight="33.0" prefWidth="85.0" stylesheets="@application.css" text="clear" textFill="WHITE" />
    </children>
 </AnchorPane>

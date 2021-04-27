@@ -22,7 +22,7 @@ public class HotelSelectionController {
 	@FXML
 	public void clickHome(ActionEvent event) throws IOException {
 		
-		mainPane = FXMLLoader.load(getClass().getResource("Main.fxml")); //
+		mainPane = FXMLLoader.load(getClass().getResource("Main.fxml")); 
 		Scene scene = new Scene(mainPane);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();

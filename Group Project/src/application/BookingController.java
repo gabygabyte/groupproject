@@ -66,27 +66,27 @@ public class BookingController {
     void saveBooking(ActionEvent event) throws IOException {
     	//Check for empty fields
     	String fields = "";
-    	if(Email.getText() == "") {
+    	if(Email.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
     	}
-    	if(CheckIn.getText() == "") {
+    	if(CheckIn.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
     	}
-    	if(CheckOut.getText() == "") {
+    	if(CheckOut.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter a check out date").showAndWait();
     	}
-    	if(NumRooms.getText() == "") {
+    	if(NumRooms.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
     	}
-    	if(NumAdults.getText() == "") {
+    	if(NumAdults.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
     	}
-    	if(NumChild.getText() == "") {
+    	if(NumChild.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
     	}

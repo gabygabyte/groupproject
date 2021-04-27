@@ -61,19 +61,19 @@ public class EditingController
 	public void Search(ActionEvent event) throws IOException  {
 		String compKey = nameText.getText().toString();
 		String info;
-        File file = new File("bookings.properties");//opens file
-        FileInputStream reader=new FileInputStream(file);//open reader
-        properties.load(reader);//loads/lets you see stored values
+        File file = new File("bookings.properties"); //opens file
+        FileInputStream reader=new FileInputStream(file); //open reader
+        properties.load(reader); //loads / lets you see stored values
         reader.close();
 
-        for(String key: properties.stringPropertyNames()){//adding values to hash map
+        for(String key: properties.stringPropertyNames()){//adding info to hash map
         	h.put(key, properties.get(key).toString());
         }
-    	 if(h.containsKey(compKey)){//check if there's a key in the hash map that matches 
- 	       	info = h.get(compKey); //set info to quantity of item
+    	 if(h.containsKey(compKey)){ //check if there's a key in the hash map that matches 
+ 	       	info = h.get(compKey); //set info that goes with the person
          }
     	 else {
-    		info = "Invalid name";//set info to show there's none in stock
+    		info = "Invalid name"; //The name doesn't go with any of the hotel info
     	 }
     	 
     	 System.out.println(info);

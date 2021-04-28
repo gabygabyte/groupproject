@@ -29,12 +29,12 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="150.0" text="Check in: mm/dd/yy" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="150.0" text="Check in: mm/dd/yyyy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label layoutX="35.0" layoutY="190.0" text="Check out: mm/dd/yy" textFill="WHITE">
+      <Label layoutX="35.0" layoutY="190.0" text="Check out: mm/dd/yyyy" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

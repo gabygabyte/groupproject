@@ -162,7 +162,20 @@ public class EditingController implements Initializable
         }
     	
     	if (fields.isEmpty()) {
-    		Model.saveInfo(nameText, hotelText, emailText, checkinText, checkoutText, roomText, adultsText, childrenText);
+    		String name = nameText.getText();
+    		String hotels = hotelText.getText();
+    		String emailAddress = emailText.getText();
+    		String checkIn = checkinText.getText();
+    		String checkOut = checkoutText.getText();
+    		int rooms = Integer.parseInt(roomText.getText());
+    		int adults = Integer.parseInt(adultsText.getText());
+    		int children = Integer.parseInt(childrenText.getText());
+    		
+    		// Merge variables into one string to be stored in hash map
+    		String Bookings = name + "," + hotels + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
+    		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
+    		
+    		Model.saveInfo(emailAddress, Bookings);
     		
     		// Display confirmation message
     		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 

@@ -163,7 +163,7 @@ public class BookingController {
     		int children = Integer.parseInt(NumChild.getText());
     		
     		// Merge variables into one string to be stored in hashmap
-    		String Bookings = name + "," + hotels + "," + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
+    		String Bookings = name + "," + hotels + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
     		// Create hashmap

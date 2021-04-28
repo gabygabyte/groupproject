@@ -1,5 +1,7 @@
 package application;
 
+import model.Model;//created this model class
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,9 +28,6 @@ import javafx.stage.Stage;
 
 public class EditingController implements Initializable
 {
-	private static HashMap<String, String> h = new HashMap<String, String>();
-	private static Properties properties = new Properties();//Create properties file to store hash map
-	
     @FXML
     private AnchorPane editingPanel;
     @FXML
@@ -77,27 +76,16 @@ public class EditingController implements Initializable
 	
 	public void Search(ActionEvent event) throws IOException  {
 		String compKey = emailText.getText().toString();
-		String info;
-        File file = new File("bookings.properties"); //opens file
-        FileInputStream reader=new FileInputStream(file); //open reader
-        properties.load(reader); //loads / lets you see stored values
-        reader.close();
-
-        for(String key: properties.stringPropertyNames()){//adding info to hash map
-        	h.put(key, properties.get(key).toString());
-        }
-    	 if(h.containsKey(compKey)){ //check if there's a key in the hash map that matches 
- 	       	info = h.get(compKey); //set info that goes with the person
-         }
-    	 else {
-    		info = "Invalid email"; //The email doesn't go with any of the hotel info
-    	 }
+		
+		String info = Model.getUserInfo(compKey); //get info from model class method
     	 
-    	 if(info.equals("Invalid email")) { //when email entered isn't a valid key print an error
+    	 if(info.equals("Invalid email")) //when email entered isn't a valid key print an error
+    	 { 
     		 new Alert(Alert.AlertType.ERROR, "Entered email is not associated with any information, "
     		 		+ "please try again.").showAndWait();
     	 }
-    	 else { 
+    	 else 
+    	 { 
 	    	 String[] infoStr = info.split(","); //split user info by the commas added in the booking process
 	    	 
 	    	 //put all the info in the proper text box

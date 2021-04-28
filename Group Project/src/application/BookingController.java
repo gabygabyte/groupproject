@@ -1,9 +1,16 @@
 package application;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Properties;
 import javafx.event.ActionEvent;
@@ -63,21 +70,74 @@ public class BookingController {
     }
 
     @FXML
-    void saveBooking(ActionEvent event) throws IOException {
-    	//Check for empty fields
+    void saveBooking(ActionEvent event) throws IOException, ParseException {
+    	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
     	String fields = "";
+    	
+    	//Check for empty fields or incorrect fields
     	if(Email.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
     	}
+    	
+    	//check for valid email address
+    	if(!Email.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+    		fields = "incomplete";
+    		Email.clear();
+    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();	
+    	}
+    	
+    	//check for previous bookings under an email
+    	try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
+    		byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
+    		String s = new String(bytes);
+    		String s2 = Email.getText();
+    		if(s.contains(s2) == true) {
+    			fields = "incomplete";
+    			new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();	
+    		} 		
+		}
+    	
+    	if(BookingName.getText().isEmpty()) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
+    	}
+    	
     	if(CheckIn.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
     	}
+    	
+    	//check for correct date format
+    	if(!CheckIn.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();
+    		
+    	}	
+    	
     	if(CheckOut.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter a check out date").showAndWait();
     	}
+    	
+    	//check for correct date format
+    	if(!CheckOut.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check out date (mm/dd/yyyy)").showAndWait();
+    		
+    	}
+    	
+    	//Verify if check out date is after check in date
+    	String checkInDate1 = CheckIn.getText();
+    	String checkOutDate1 = CheckOut.getText();
+    	Date date1 = sdf.parse(checkInDate1);
+    	Date date2 = sdf.parse(checkOutDate1);
+    	if (date1.after(date2)) {
+            fields = "incomplete";
+            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
+        }
+    	
     	if(NumRooms.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
@@ -90,9 +150,10 @@ public class BookingController {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
     	}
-    	
+    	   		
     	if (fields.isEmpty()) {
     		// Set Variables from text fields
+    		String name = BookingName.getText();
     		String hotels = HotelName.getText();
     		String emailAddress = Email.getText();
     		String checkInDate = CheckIn.getText();
@@ -101,11 +162,13 @@ public class BookingController {
     		int adults = Integer.parseInt(NumAdults.getText());
     		int children = Integer.parseInt(NumChild.getText());
     		
-    		// Merge variables into one string to be stored in hashmap
-    		String Bookings = hotels + "," + emailAddress + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
+    		// Merge variables into one string to be stored in hash map
+
+
+    		String Bookings = name + "," + hotels + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
-    		// Create hashmap
+    		// Create has map
     		HashMap<String, String> h = new HashMap<String, String>();
     		File file = new File("bookings.properties");
     		FileInputStream reader = new FileInputStream(file);
@@ -119,13 +182,13 @@ public class BookingController {
     		
     		// Check for prev bookings under given name
     	
-    		// If no prev bookings with same name, store info into hashmap
-    		h.put(BookingName.getText().toString(), Bookings);
+    		// If no prev bookings with same name, store info into hash map
+    		h.put(emailAddress, Bookings);
     		
-    		// Store hashmap into propreties 
+    		// Store hash map into properties 
     		properties.putAll(h);
     		
-    		// Write propreties to file
+    		// Write properties to file
     		FileOutputStream writer = new FileOutputStream(file);
     		properties.store(writer, null);
     		

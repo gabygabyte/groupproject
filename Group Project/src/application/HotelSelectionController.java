@@ -1,5 +1,5 @@
 package application;
-
+import model.Model;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -24,9 +24,9 @@ public class HotelSelectionController {
 	private AnchorPane mainPane;
 	
 	public static String[] hotelArray = new String[6];	//array that will contain the selected hotels
-	public String hotelSelection; //to save hotel name as a string
-	public int arrayIndex; //to keep track of where in the array a hotel name will be save
-	public boolean match;
+	public static String hotelSelection; //to save hotel name as a string
+	public static int arrayIndex; //to keep track of where in the array a hotel name will be save
+	public static boolean match;
 	
 	
 	/*
@@ -34,7 +34,8 @@ public class HotelSelectionController {
 	 */
 	@FXML
 	public void clickHome(ActionEvent event) throws IOException {
-		mainPane = FXMLLoader.load(getClass().getResource("Main.fxml")); 
+		
+		mainPane = FXMLLoader.load(getClass().getResource("Main.fxml")); //
 		Scene scene = new Scene(mainPane);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -53,7 +54,6 @@ public class HotelSelectionController {
 	public void setHotel(ActionEvent event) throws IOException {
 				
 		hotelSelection = ((Node) event.getSource()).getId(); //saves hotel name to hotelSelection
-	
 	}
 	
 	
@@ -67,23 +67,9 @@ public class HotelSelectionController {
 	public void addHotel(ActionEvent event) throws IOException {
 		
 		 checkHotelArray(); //checks if hotel has already been added
-		
+		 
 		  //if checkHotelArray returns false 
-		  if(!match) {
-			hotelArray[arrayIndex] = hotelSelection; //save hotelSelection to an index in hotelArray
-			arrayIndex++; //increment hotelIndex for next entry
-				Alert a = new Alert(Alert.AlertType.CONFIRMATION, hotelSelection + " has been successfully added.");
-				a.show();//show confirmation message
-		  }
-		  else if(hotelSelection == null) {
-			  Alert a = new Alert(Alert.AlertType.ERROR, "You must select a hotel to add!");
-				a.show();//show Error message
-		  }
-		  else {
-			Alert a = new Alert(Alert.AlertType.ERROR, hotelSelection + " has already been added.");
-			a.show();//show Error message
-		  }	
-		
+		  Model.addHotel(hotelSelection, hotelArray, arrayIndex, match);
 	}
 	
 	
@@ -97,13 +83,7 @@ public class HotelSelectionController {
 	@FXML
 	public void clearHotels(ActionEvent event) throws IOException {
 		
-		for(int i=0; i<hotelArray.length; i++) { //traverse through array
-			hotelArray[i] = null; //set each entry to null
-		}
-		hotelSelection = null; //clear anything that was saved to hotelSelection
-		arrayIndex = 0; //set array index back to start
-		Alert a = new Alert(Alert.AlertType.CONFIRMATION, "All selections have been cleared.");
-		a.show();//show confirmation message
+		Model.clearHotels(hotelArray, hotelSelection, arrayIndex);
 	}
 	
 	
@@ -117,15 +97,7 @@ public class HotelSelectionController {
 	@FXML
 	public void checkHotelArray() throws IOException {
 		
-		for(int i=0; i<hotelArray.length; i++) { //traverse through each array index
-			if (hotelSelection == hotelArray[i]) { //tests for a matching string
-				match = true; //match set to true if match found
-				break; //break out of loop
-			}
-		else {
-			match = false; //if no match found return false
-		}
-		}
+		Model.checkHotelArray(hotelArray, hotelSelection, arrayIndex, match);
 	}
 	
 	
@@ -137,21 +109,8 @@ public class HotelSelectionController {
 	 */
 	@FXML
 	public void displayHotelArray(ActionEvent event) throws IOException {
-		String hotels = "";
-		for(int i=0; i<hotelArray.length; i++) { //traverse through each array index
-			if (hotelArray[i] != null) { //tests if string is empty
-				hotels = hotels+"\n"+hotelArray[i]; //append hotel at each index to hotels variable
-			}
-		}
-		if(hotelArray[0] == null) {
-			Alert a = new Alert(Alert.AlertType.ERROR, "No hotels have been added yet!");
-			a.show();//show Error message
-		}
-		else {
-			Alert a = new Alert(Alert.AlertType.INFORMATION, "Following hotels have been added: \n" + hotels); //use hotels string to print hotels in message
-			a.show();
-		}
 		
+		Model.displayHotelArray(hotelArray, hotelSelection, arrayIndex);
 	}
 	
 	
@@ -168,7 +127,6 @@ public class HotelSelectionController {
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		window.setScene(scene);
 		window.show();
-	
 	}
 	
 }

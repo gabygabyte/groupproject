@@ -56,6 +56,8 @@ public class EditingController implements Initializable
     @FXML
     private Button emailEdit;
     @FXML
+    private Button nameEdit;
+    @FXML
     private Button checkinEdit;
     @FXML
     private Button roomsEdit;
@@ -74,7 +76,7 @@ public class EditingController implements Initializable
 	}
 	
 	public void Search(ActionEvent event) throws IOException  {
-		String compKey = nameText.getText().toString();
+		String compKey = emailText.getText().toString();
 		String info;
         File file = new File("bookings.properties"); //opens file
         FileInputStream reader=new FileInputStream(file); //open reader
@@ -88,19 +90,19 @@ public class EditingController implements Initializable
  	       	info = h.get(compKey); //set info that goes with the person
          }
     	 else {
-    		info = "Invalid name"; //The name doesn't go with any of the hotel info
+    		info = "Invalid email"; //The email doesn't go with any of the hotel info
     	 }
     	 
-    	 if(info.equals("Invalid name")) { //when name enter isn't a valid key print an error
-    		 new Alert(Alert.AlertType.ERROR, "Entered name is not associated with any information, "
+    	 if(info.equals("Invalid email")) { //when email entered isn't a valid key print an error
+    		 new Alert(Alert.AlertType.ERROR, "Entered email is not associated with any information, "
     		 		+ "please try again.").showAndWait();
     	 }
     	 else { 
 	    	 String[] infoStr = info.split(","); //split user info by the commas added in the booking process
 	    	 
 	    	 //put all the info in the proper text box
-	    	 hotelText.setText(infoStr[0]);
-	    	 emailText.setText(infoStr[1]);
+	    	 nameText.setText(infoStr[0]);
+	    	 hotelText.setText(infoStr[1]);
 	    	 checkinText.setText(infoStr[2]);
 	    	 checkoutText.setText(infoStr[3]);
 	    	 roomText.setText(infoStr[4]);
@@ -121,8 +123,8 @@ public class EditingController implements Initializable
 					+ "click update when all fields are properly up to date.").showAndWait();
 		}
 			
-		if(emailEdit == pressedButton) {
-			emailText.clear();
+		if(nameEdit == pressedButton) {
+			nameText.clear();
 			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired email, "
 					+ "click update when all fields are properly up to date.").showAndWait();
 		}
@@ -286,6 +288,6 @@ public class EditingController implements Initializable
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) { //start name text box with message
-		nameText.setText("Enter name associated with information here then press search");
+		emailText.setText("Enter email associated with information here, then press search");
 	}
 }

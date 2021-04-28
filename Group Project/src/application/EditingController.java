@@ -76,16 +76,17 @@ public class EditingController
     		info = "Invalid name"; //The name doesn't go with any of the hotel info
     	 }
     	 
-    	 System.out.println(info);
     	 
-    	 /*
-    	 hotelText.setText();
-    	 emailText.setText();
-    	 checkinText.setText();
-    	 checkoutText.setText();
-    	 roomText.setText();
-    	 adultsText.setText();
-    	 childrenText.setText();*/
+    	 String[] infoStr = info.split(","); //split user info by the commas added in the booking process
+    	 
+    	 //put all the info in the proper text box
+    	 hotelText.setText(infoStr[0]);
+    	 emailText.setText(infoStr[1]);
+    	 checkinText.setText(infoStr[2]);
+    	 checkoutText.setText(infoStr[3]);
+    	 roomText.setText(infoStr[4]);
+    	 adultsText.setText(infoStr[5]);
+    	 childrenText.setText(infoStr[6]);
 	}
 	
 	@FXML

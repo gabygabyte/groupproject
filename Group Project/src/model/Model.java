@@ -58,11 +58,9 @@ public class Model {
                 + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
     		fields = "incomplete";
     		emailText.clear();
-    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();
-    		
+    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();	
     	}
   
-    	
     	if(checkinText.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
@@ -71,10 +69,8 @@ public class Model {
     	//check for correct date format
     	if(!checkinText.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
     		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();
-    		
+    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();    		
     	}
-    	
     	
     	if(checkoutText.getText().isEmpty()) {
     		fields = "incomplete";
@@ -92,38 +88,21 @@ public class Model {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
     	}
+    	
     	if(adultsText.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
     	}
+    	
     	if(childrenText.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
     	}
 	}
 	
-	public static void saveInfo(TextField nameText, TextField hotelText, TextField emailText, 
-			TextField checkinText, TextField checkoutText, TextField roomText, TextField adultsText, TextField childrenText) throws IOException {
-		
-		// Set Variables from text fields
-		String name = nameText.getText();
-		String hotels = hotelText.getText();
-		String emailAddress = emailText.getText();
-		String checkIn = checkinText.getText();
-		String checkOut = checkoutText.getText();
-		int rooms = Integer.parseInt(roomText.getText());
-		int adults = Integer.parseInt(adultsText.getText());
-		int children = Integer.parseInt(childrenText.getText());
-		
-		// Merge variables into one string to be stored in hash map
-		String Bookings = name + "," + hotels + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
-		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
-		
-		// Create hash map
-		HashMap<String, String> h = new HashMap<String, String>();
+	public static void saveInfo(String emailAddress, String Bookings) throws IOException {
 		File file = new File("bookings.properties");
 		FileInputStream reader = new FileInputStream(file);
-		Properties properties = new Properties();
 		properties.load(reader);
 		reader.close();
 	
@@ -144,7 +123,7 @@ public class Model {
 		// Close writer
 		writer.close();
 	}
-	
+
 	public static void addHotel(String hotelSelection, String[] hotelArray, int arrayIndex, boolean match) {
 		if(!match) { 
 			

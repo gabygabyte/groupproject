@@ -90,7 +90,7 @@
                   <Insets bottom="5.0" left="30.0" right="30.0" top="5.0" />
                </padding>
             </Button>
-            <Label layoutX="50.0" layoutY="120.0" text="Hotel:" textFill="WHITE">
+            <Label layoutX="50.0" layoutY="120.0" text="Hotels:" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>

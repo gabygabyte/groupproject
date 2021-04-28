@@ -82,7 +82,7 @@ public class EditingController implements Initializable
     	 if(info.equals("Invalid email")) //when email entered isn't a valid key print an error
     	 { 
     		 new Alert(Alert.AlertType.ERROR, "Entered email is not associated with any information, "
-    		 		+ "please try again.").showAndWait();
+    		 		+ " please try again.").showAndWait();
     	 }
     	 else 
     	 { 
@@ -104,42 +104,43 @@ public class EditingController implements Initializable
 		Button pressedButton = (Button) event.getSource(); //gets id for pressed button
 		String id = pressedButton.getId();
 		
-		//clears the corresponding button and prints a confirmation 
-		if(hotelEdit == pressedButton) {
-			hotelText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired hotels, "
-					+ "click update when all fields are properly up to date.").showAndWait();
-		}
-			
+		String type; //used to set which type of alert should be printed
+		
+		//clears the corresponding button and prints a confirmation 	
 		if(nameEdit == pressedButton) {
 			nameText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired email, "
-					+ "click update when all fields are properly up to date.").showAndWait();
+			type = "name";
+			Model.printAlert(type);
+		}
+		if(hotelEdit == pressedButton) {
+			hotelText.clear();
+			type = "hotels";
+			Model.printAlert(type);
 		}
 		if(checkinEdit == pressedButton) {
 			checkinText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired checkin date, "
-					+ "click update when all fields are properly up to date.").showAndWait();
+			type = "check in date";
+			Model.printAlert(type);
 		}
 		if(checkoutEdit == pressedButton) {
 			checkoutText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired checkout date, "
-					+ "click update when all fields are properly up to date.").showAndWait();
+			type = "check out date";
+			Model.printAlert(type);
 		}
 		if(roomsEdit == pressedButton) {
 			roomText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired number of rooms, "
-					+ "click update when all fields are properly up to date.").showAndWait();
+			type = "number of rooms";
+			Model.printAlert(type);
 		}
 		if(adultsEdit == pressedButton) {
 			adultsText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired number of adult guests, "
-					+ "click update when all fields are properly up to date.").showAndWait();
+			type = "number of adult guests";
+			Model.printAlert(type);
 		}
 		if(childrenEdit == pressedButton) {
 			childrenText.clear();
-			new Alert(Alert.AlertType.CONFIRMATION, "You can now update to desired number of child guests, "
-					+ "click update when all fields are properly up to date.").showAndWait();
+			type = "number of child guests";
+			Model.printAlert(type);
 		}
 	}
 	
@@ -228,11 +229,11 @@ public class EditingController implements Initializable
     		int adults = Integer.parseInt(adultsText.getText());
     		int children = Integer.parseInt(childrenText.getText());
     		
-    		// Merge variables into one string to be stored in hashmap
+    		// Merge variables into one string to be stored in hash map
     		String Bookings = name + "," + hotels + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
-    		// Create hashmap
+    		// Create hash map
     		HashMap<String, String> h = new HashMap<String, String>();
     		File file = new File("bookings.properties");
     		FileInputStream reader = new FileInputStream(file);
@@ -249,10 +250,10 @@ public class EditingController implements Initializable
     		// If no prev bookings with same name, store info into hashmap
     		h.put(emailAddress, Bookings);
     		
-    		// Store hashmap into propreties 
+    		// Store hash map into properties 
     		properties.putAll(h);
     		
-    		// Write propreties to file
+    		// Write properties to file
     		FileOutputStream writer = new FileOutputStream(file);
     		properties.store(writer, null);
     		

@@ -162,13 +162,13 @@ public class BookingController {
     		int adults = Integer.parseInt(NumAdults.getText());
     		int children = Integer.parseInt(NumChild.getText());
     		
-    		// Merge variables into one string to be stored in hashmap
+    		// Merge variables into one string to be stored in hash map
 
 
     		String Bookings = name + "," + hotels + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
-    		// Create hashmap
+    		// Create has map
     		HashMap<String, String> h = new HashMap<String, String>();
     		File file = new File("bookings.properties");
     		FileInputStream reader = new FileInputStream(file);
@@ -182,13 +182,13 @@ public class BookingController {
     		
     		// Check for prev bookings under given name
     	
-    		// If no prev bookings with same name, store info into hashmap
+    		// If no prev bookings with same name, store info into hash map
     		h.put(emailAddress, Bookings);
     		
-    		// Store hashmap into propreties 
+    		// Store hash map into properties 
     		properties.putAll(h);
     		
-    		// Write propreties to file
+    		// Write properties to file
     		FileOutputStream writer = new FileOutputStream(file);
     		properties.store(writer, null);
     		

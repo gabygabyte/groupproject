@@ -7,13 +7,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 
+import javafx.scene.control.Alert;
+
 public class Model 
 {
-	private static HashMap<String, String> h = new HashMap<String, String>();
+	private static HashMap<String, String> h = new HashMap<String, String>();//hash map to store information
 	private static Properties properties = new Properties();//Create properties file to store hash map
 	
-	public static String getUserInfo(String compKey) throws IOException
-	{
+	public static String getUserInfo(String compKey) throws IOException{
 		String info;
         File file = new File("bookings.properties"); //opens file
         FileInputStream reader=new FileInputStream(file); //open reader
@@ -31,5 +32,10 @@ public class Model
     	 }
     	 
     	 return info;
+	}
+	
+	public static void printAlert(String type) {	
+		new Alert(Alert.AlertType.INFORMATION, "You can now update to desired " + type
+				+ ", click update when all fields are properly up to date.").showAndWait();
 	}
 }

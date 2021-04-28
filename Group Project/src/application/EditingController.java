@@ -231,6 +231,7 @@ public class EditingController implements Initializable
     	
     	if (fields.isEmpty()) {
     		// Set Variables from text fields
+    		String name = nameText.getText();
     		String hotels = hotelText.getText();
     		String emailAddress = emailText.getText();
     		String checkIn = checkinText.getText();
@@ -240,7 +241,7 @@ public class EditingController implements Initializable
     		int children = Integer.parseInt(childrenText.getText());
     		
     		// Merge variables into one string to be stored in hashmap
-    		String Bookings = hotels + "," + emailAddress + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
+    		String Bookings = name + "," + hotels + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
     		// Create hashmap
@@ -258,7 +259,7 @@ public class EditingController implements Initializable
     		// Check for prev bookings under given name
     	
     		// If no prev bookings with same name, store info into hashmap
-    		h.put(nameText.getText().toString(), Bookings);
+    		h.put(emailAddress, Bookings);
     		
     		// Store hashmap into propreties 
     		properties.putAll(h);

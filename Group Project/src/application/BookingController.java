@@ -116,8 +116,7 @@ public class BookingController {
     		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();
     		
     	}
-    	
-    	
+    	    	
     	if(CheckOut.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter a check out date").showAndWait();

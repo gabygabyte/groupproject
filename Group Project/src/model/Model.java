@@ -9,8 +9,13 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import application.HotelSelectionController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class Model {
 	private static HashMap<String, String> h = new HashMap<String, String>();//hash map to store information
@@ -41,25 +46,17 @@ public class Model {
 				+ ", click update when all fields are properly up to date.").showAndWait();
 	}
 	
-	public static void checkEmpty(String fields, TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
+	public static String checkFields(TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
 			TextField checkoutText, TextField roomText, TextField adultsText, TextField childrenText) {
+		
+		String fields = "";
     	if(nameText.getText().isEmpty() && hotelText.getText().isEmpty() && checkinText.getText().isEmpty() && checkinText.getText().isEmpty() && checkoutText.getText().isEmpty() && roomText.getText().isEmpty() && adultsText.getText().isEmpty() && childrenText.getText().isEmpty()) 
     	{
     		new Alert(Alert.AlertType.ERROR, "All infomation is blank, please type in you email then press search to load your information").showAndWait();
     	}
     	else 
     	{
-	    	if(nameText.getText().isEmpty()) {
-	    		fields = "incomplete";
-	    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
-	    	}
 	    	if(emailText.getText().isEmpty()) {
-	    		fields = "incomplete";
-	    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
-	    	}
-	    	
-	    	if(hotelText.getText().isEmpty())
-	    	{
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
 	    	}
@@ -68,10 +65,20 @@ public class Model {
 	    	if(!emailText.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
 	                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
 	    		fields = "incomplete";
-	    		emailText.clear();
-	    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();	
+	    		new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").showAndWait();
 	    	}
-	  
+	    	
+	    	if(nameText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
+	    	}
+	    	
+	    	if(hotelText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter at least one hotel.").showAndWait();
+	    	}
+	    	
+
 	    	if(checkinText.getText().isEmpty()) {
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
@@ -110,6 +117,8 @@ public class Model {
 	    		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
 	    	}
     	}
+    	
+    	return fields;
 	}
 	
 	public static void saveInfo(String emailAddress, String Bookings) throws IOException {
@@ -121,19 +130,24 @@ public class Model {
 		for(String key: properties.stringPropertyNames()) {
 			h.put(key, properties.get(key).toString());
 		}	
-	
+		
 		// Store info into hashmap
 		h.put(emailAddress, Bookings);
-		
+			
 		// Store hash map into properties 
 		properties.putAll(h);
-		
+			
 		// Write properties to file
 		FileOutputStream writer = new FileOutputStream(file);
 		properties.store(writer, null);
-		
+			
 		// Close writer
 		writer.close();
+			
+		// Display confirmation message
+		new Alert(Alert.AlertType.INFORMATION, "Booking successfully updated!" 
+			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
+			+ "from them shortly.").showAndWait();
 	}
 
 	public static void addHotel(String hotelSelection, String[] hotelArray, int arrayIndex, boolean match) {

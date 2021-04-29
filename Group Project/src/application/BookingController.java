@@ -71,7 +71,7 @@ public class BookingController {
 
     @FXML
     void saveBooking(ActionEvent event) throws IOException, ParseException {
-    	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
+    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	//Check for empty fields
     	String fields = "";
     	
@@ -185,7 +185,7 @@ public class BookingController {
     		// Check for prev bookings under given name
     	
     		// If no prev bookings with same name, store info into hashmap
-    		h.put(BookingName.getText().toString(), Bookings);
+    		h.put(Email.getText().toString(), Bookings);
     		
     		// Store hashmap into propreties 
     		properties.putAll(h);

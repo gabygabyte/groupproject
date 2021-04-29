@@ -160,6 +160,13 @@ public class EditingController implements Initializable
             new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
         }
     	
+    	//Verify that the date chosen has not already passed
+    	java.util.Date now=new java.util.Date();
+    	if(now.after(date1) | now.after(date2)) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+    	}
+    	
     	if (fields.isEmpty()) {
     		String name = nameText.getText();
     		String hotels = hotelText.getText();

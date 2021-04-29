@@ -9,8 +9,8 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HotelSelectionController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="710.0" />
-      <ImageView fx:id="background" fitHeight="400.0" fitWidth="710.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="477.0" prefWidth="710.0" />
+      <ImageView fx:id="background" fitHeight="477.0" fitWidth="710.0">
          <image>
             <Image url="@../../bin/application/hotelbackground.jpg" />
          </image>

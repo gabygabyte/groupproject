@@ -25,14 +25,14 @@ customers who don't want to spend countless hours searching for hotels and it is
  - Main Scene: No known bugs
  - Hotel Booking Scene: No known bugs
  - Booking scene:
- - Editing scene:
+ - Editing scene: No known bugs
 
 
 ### Functionality
 Main Scene - All functionalities of the main scene are currently working
 Hotel Booking Scene - All functionalities of the hotel booking scene are currently working
 Booking scene -
-Editing scene -
+Editing scene - All functionalities of the editing scene are currently working
 
 ## Group Members
  *Gabriela Castellanos (gabygabyte) 

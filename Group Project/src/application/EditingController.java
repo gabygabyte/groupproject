@@ -81,9 +81,7 @@ public class EditingController implements Initializable
     	 }
     	 else 
     	 { 
-	    	 String[] infoStr = info.split(":"); //split user info by the commas added in the booking process
-	    	 
-	    	 System.out.println(infoStr[0]);
+	    	 String[] infoStr = info.split(":"); //split user info by the colons added in the booking process
 	    	 
 	    	 //put all the info in the proper text box
 	    	 nameText.setText(infoStr[0]);

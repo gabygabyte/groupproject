@@ -147,7 +147,7 @@ public class EditingController implements Initializable
 	@FXML
 	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
-		String fields = Model.checkEmpty(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
+		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
     	//Verify if check out date is after check in date
     	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
@@ -175,11 +175,6 @@ public class EditingController implements Initializable
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
     		Model.saveInfo(emailAddress, Bookings);
-    		
-    		/*/ Display confirmation message
-    		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
-    			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
-    			+ "from them shortly.").showAndWait(); */
     		
     		// Return to main page
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));

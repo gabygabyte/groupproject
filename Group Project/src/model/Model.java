@@ -46,7 +46,7 @@ public class Model {
 				+ ", click update when all fields are properly up to date.").showAndWait();
 	}
 	
-	public static String checkEmpty(TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
+	public static String checkFields(TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
 			TextField checkoutText, TextField roomText, TextField adultsText, TextField childrenText) {
 		
 		String fields = "";
@@ -145,7 +145,7 @@ public class Model {
 		writer.close();
 			
 		// Display confirmation message
-		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
+		new Alert(Alert.AlertType.INFORMATION, "Booking successfully updated!" 
 			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
 			+ "from them shortly.").showAndWait();
 	}

@@ -33,6 +33,9 @@ public class BookingController implements Initializable{
 
     @FXML
     private TextField NumAdults;
+    
+    @FXML
+    private TextField location;
 
     @FXML
     private TextField Email;
@@ -73,7 +76,7 @@ public class BookingController implements Initializable{
     	
     	
     	//Check for empty fields
-    	String fields = Model.checkFields(BookingName, Email, HotelName, CheckIn, CheckOut, 
+    	String fields = Model.checkFields(location, BookingName, Email, HotelName, CheckIn, CheckOut, 
     			NumRooms, NumAdults, NumChild);
     	
     	if (fields.isEmpty()) {

@@ -49,7 +49,7 @@ public class Model {
 				+ ", click update when all fields are properly up to date.").showAndWait();
 	}
 	
-	public static String checkFields(TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
+	public static String checkFields(TextField location, TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
 			TextField checkoutText, TextField roomText, TextField adultsText, TextField childrenText) throws ParseException, FileNotFoundException, IOException {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -68,6 +68,12 @@ public class Model {
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Please enter at least one hotel.").showAndWait();
 	    	}
+    		
+    		// Check for location
+    		if(location.getText().isEmpty()) {
+    			fields = "incomplete";
+    			new Alert(Alert.AlertType.ERROR, "Please enter a location");
+    		}
     		
     		// Check for name
     		if(nameText.getText().isEmpty()) {

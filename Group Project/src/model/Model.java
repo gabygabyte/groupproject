@@ -136,13 +136,14 @@ public class Model {
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
 	    	}
+	    	else {
 	    	// Check for at least 1 adult
-	    	int numAdults = Integer.parseInt(adultsText.getText());
-	    	if(numAdults == 0) {
-	    		fields = "incomplete";
-	    		new Alert(Alert.AlertType.ERROR, "Number of adults should be more than 0").showAndWait();
+	    		int numAdults = Integer.parseInt(adultsText.getText());
+	    		if(numAdults == 0) {
+	    			fields = "incomplete";
+	    			new Alert(Alert.AlertType.ERROR, "Number of adults should be more than 0").showAndWait();
+	    		}
 	    	}
-	    	
 	    	// Check for amount of children
 	    	if(childrenText.getText().isEmpty()) {
 	    		fields = "incomplete";

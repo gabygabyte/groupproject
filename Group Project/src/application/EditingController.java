@@ -151,7 +151,7 @@ public class EditingController implements Initializable
     	Model.checkEmpty(fields, nameText, emailText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
     	//Verify if check out date is after check in date
-    	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
+    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	String checkInDate = checkinText.getText();
     	String checkOutDate = checkoutText.getText();
     	Date date1 = sdf.parse(checkInDate);

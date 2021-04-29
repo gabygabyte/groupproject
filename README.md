@@ -10,7 +10,7 @@ to the chosen hotel chain so that those hotel chains can then send their offers 
 customers who don't want to spend countless hours searching for hotels and it is also a great lead generator for hotels.
 
 ### How to run the application
- - Download and import the project into your IDE manually
+ - Download the zip file and import the project into your IDE manually
  - If you habe EGit installed you can import the project directly from GitHub
 
 

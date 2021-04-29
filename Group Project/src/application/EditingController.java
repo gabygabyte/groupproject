@@ -81,7 +81,9 @@ public class EditingController implements Initializable
     	 }
     	 else 
     	 { 
-	    	 String[] infoStr = info.split(","); //split user info by the commas added in the booking process
+	    	 String[] infoStr = info.split(":"); //split user info by the commas added in the booking process
+	    	 
+	    	 System.out.println(infoStr[0]);
 	    	 
 	    	 //put all the info in the proper text box
 	    	 nameText.setText(infoStr[0]);
@@ -144,7 +146,7 @@ public class EditingController implements Initializable
 		//Check for empty fields
 		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
-    	//Verify if check out date is after check in date
+		//Verify if check out date is after check in date
     	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	String checkInDate = checkinText.getText();
     	String checkOutDate = checkoutText.getText();
@@ -173,8 +175,8 @@ public class EditingController implements Initializable
     		int children = Integer.parseInt(childrenText.getText());
     		
     		// Merge variables into one string to be stored in hash map
-    		String Bookings = name + "," + hotels + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
-    		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
+    		String Bookings = name + ":" + hotels + ":" + checkInDate + ":" + checkOutDate + ":" + String.valueOf(rooms)
+    		+ ":" + String.valueOf(adults) + ":" + String.valueOf(children);
     		
     		Model.saveInfo(emailAddress, Bookings);
     		

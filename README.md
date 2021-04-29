@@ -5,8 +5,9 @@
 
 ## Description
 
-Short description ( (>=1 sentence ) of app
-
+Ding Dong is an app that collects information from users about their travel plans and it sends their information
+to the chosen hotel chain so that those hotel chains can then send their offers to the customer directly. This is great for
+customers who don't want to spend countless hours searching for hotels and it is also a great lead generator for hotels.
 
 ### How to run the application
  instructions for running your application
@@ -23,7 +24,8 @@ Known bugs if any
 
 
 ### Functionality
-hat functionalities work and which ones do not work
+
+Hotel Booking Scene - All functionalities of the hotel booking scene are currently working
 
 
 ## Group Members

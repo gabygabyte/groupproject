@@ -1,11 +1,15 @@
 package application;
 
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Properties;
@@ -78,6 +82,19 @@ public class BookingController implements Initializable{
     	//Check for empty fields
     	String fields = Model.checkFields(location, BookingName, Email, HotelName, CheckIn, CheckOut, 
     			NumRooms, NumAdults, NumChild);
+    	
+    	//check for previous bookings under an email
+    	try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
+	    	byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
+	    	String s = new String(bytes);
+	    	String s2 = Email.getText();
+	    	if(s.contains(s2) == true) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();	
+	    	}	
+		}
+    	
+    	
     	
     	if (fields.isEmpty()) {
     		// Set Variables from text fields

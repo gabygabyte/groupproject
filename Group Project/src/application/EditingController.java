@@ -177,10 +177,10 @@ public class EditingController implements Initializable
     		
     		Model.saveInfo(emailAddress, Bookings);
     		
-    		// Display confirmation message
+    		/*/ Display confirmation message
     		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
     			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
-    			+ "from them shortly.").showAndWait();
+    			+ "from them shortly.").showAndWait(); */
     		
     		// Return to main page
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));

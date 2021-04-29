@@ -9,8 +9,13 @@ import java.util.HashMap;
 import java.util.Properties;
 
 import application.HotelSelectionController;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class Model {
 	private static HashMap<String, String> h = new HashMap<String, String>();//hash map to store information
@@ -49,17 +54,7 @@ public class Model {
     	}
     	else 
     	{
-	    	if(nameText.getText().isEmpty()) {
-	    		fields = "incomplete";
-	    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
-	    	}
 	    	if(emailText.getText().isEmpty()) {
-	    		fields = "incomplete";
-	    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
-	    	}
-	    	
-	    	if(hotelText.getText().isEmpty())
-	    	{
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
 	    	}
@@ -68,10 +63,20 @@ public class Model {
 	    	if(!emailText.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
 	                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
 	    		fields = "incomplete";
-	    		emailText.clear();
-	    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();	
+	    		new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").showAndWait();
 	    	}
-	  
+	    	
+	    	if(nameText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
+	    	}
+	    	
+	    	if(hotelText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter at least one hotel.").showAndWait();
+	    	}
+	    	
+
 	    	if(checkinText.getText().isEmpty()) {
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
@@ -134,6 +139,11 @@ public class Model {
 		
 		// Close writer
 		writer.close();
+		
+		// Display confirmation message
+		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
+			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
+			+ "from them shortly.").showAndWait();
 	}
 
 	public static void addHotel(String hotelSelection, String[] hotelArray, int arrayIndex, boolean match) {

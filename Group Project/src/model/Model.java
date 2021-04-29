@@ -80,7 +80,19 @@ public class Model {
                     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) ) {
         		fields = "incomplete";
         		new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").showAndWait();
-        	} 
+        	} else {
+    		
+	    		//check for previous bookings under an email
+	        	try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
+	    	    	byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
+	    	    	String s = new String(bytes);
+	    	    	String s2 = emailText.getText();
+	    	    	if(s.contains(s2) == true) {
+	    	    		fields = "incomplete";
+	    	    		new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();	
+	    	    	}	
+	    		}
+        	}
     		// Check for checkIn
 	     	if(checkinText.getText().isEmpty()) {
 	    		fields = "incomplete";
@@ -207,8 +219,7 @@ public class Model {
 		}
 		HotelSelectionController.hotelSelection = null; //clear anything that was saved to hotelSelection
 		HotelSelectionController.arrayIndex = 0; //set array index back to start
-		Alert a = new Alert(Alert.AlertType.CONFIRMATION, "All selections have been cleared.");
-		a.show();//show confirmation message		
+				
 	}
 
 	public static void checkHotelArray(String[] hotelArray, String hotelSelection, int arrayIndex, boolean match) {

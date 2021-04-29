@@ -81,6 +81,7 @@ public class BookingController implements Initializable{
     	
     	if (fields.isEmpty()) {
     		// Set Variables from text fields
+    		String loc = location.getText();
     		String name = BookingName.getText();
     		String hotels = HotelName.getText();
     		String emailAddress = Email.getText();
@@ -91,7 +92,7 @@ public class BookingController implements Initializable{
     		int children = Integer.parseInt(NumChild.getText());
     		
     		// Merge variables into one string to be stored in hashmap
-    		String Bookings = name + ":" + hotels + ":" + checkInDate + ":" + checkOutDate + ":" + String.valueOf(rooms)
+    		String Bookings = name + ":" + hotels + ":" + location + ":" + checkInDate + ":" + checkOutDate + ":" + String.valueOf(rooms)
     		+ ":" + String.valueOf(adults) + ":" + String.valueOf(children);
     		
     		// Create hashmap

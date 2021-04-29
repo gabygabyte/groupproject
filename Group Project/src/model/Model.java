@@ -54,7 +54,7 @@ public class Model {
 		
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
 		String fields = "";
-    	if(nameText.getText().isEmpty() && hotelText.getText().isEmpty() && checkinText.getText().isEmpty() && 
+    	if(location.getText().isEmpty() && nameText.getText().isEmpty() && hotelText.getText().isEmpty() && checkinText.getText().isEmpty() && 
     			checkinText.getText().isEmpty() && checkoutText.getText().isEmpty() && roomText.getText().isEmpty() && 
     			adultsText.getText().isEmpty() && childrenText.getText().isEmpty()) 
     	{

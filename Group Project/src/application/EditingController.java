@@ -150,7 +150,7 @@ public class EditingController implements Initializable
 		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
     	//Verify if check out date is after check in date
-    	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
+    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	String checkInDate = checkinText.getText();
     	String checkOutDate = checkoutText.getText();
     	Date date1 = sdf.parse(checkInDate);

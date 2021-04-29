@@ -144,9 +144,7 @@ public class BookingController {
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
     	} 
     	
-    	
-    	
-    	
+    	    	
     	//Verify if check out date is after check in date
     	String checkInDate1 = CheckIn.getText();
     	String checkOutDate1 = CheckOut.getText();

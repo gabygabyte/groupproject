@@ -56,10 +56,7 @@ public class BookingController implements Initializable{
     private TextField BookingName;
     
     @FXML
-    private AnchorPane bookingBack;
-    
-   
-    
+    private AnchorPane bookingBack;    
 
     @FXML
     void goBack(ActionEvent event) throws IOException {
@@ -138,11 +135,15 @@ public class BookingController implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		HotelName.setText("FIX ME");
-		
+		int size = HotelSelectionController.hotelArray.length;
+		int i;
+		String hotels = HotelSelectionController.hotelArray[0];
+		for (i = 1; i < size - 1; i++) {
+			if (HotelSelectionController.hotelArray[i] != null) {
+				hotels = hotels + "," + HotelSelectionController.hotelArray[i];
+			}
+		}	
+		HotelName.setText(hotels); 	
 	}
-
-	
-
 }
 

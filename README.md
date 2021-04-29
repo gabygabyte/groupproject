@@ -15,17 +15,17 @@ customers who don't want to spend countless hours searching for hotels and it is
 
 
 ### Requirements
--IDE of choice (we used Eclipse)
--Java (Java 8, jre1.8.0_221 or newer)
--JavaFX 
--SceneBuilder if editing FXML files
+ - IDE of choice (we used Eclipse)
+ - Java (Java 8, jre1.8.0_221 or newer)
+ - JavaFX 
+ - SceneBuilder if editing FXML files
 
 
 ### Bugs
--Main Scene: No known bugs
--Hotel Booking Scene - No known bugs
-Booking scene -
-Editing scene -
+ - Main Scene: No known bugs
+ - Hotel Booking Scene: No known bugs
+ - Booking scene:
+ - Editing scene:
 
 
 ### Functionality

@@ -41,62 +41,74 @@ public class Model {
 				+ ", click update when all fields are properly up to date.").showAndWait();
 	}
 	
-	public static void checkEmpty(String fields, TextField nameText, TextField emailText, TextField checkinText, 
+	public static void checkEmpty(String fields, TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
 			TextField checkoutText, TextField roomText, TextField adultsText, TextField childrenText) {
-    	
-    	if(nameText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
+    	if(nameText.getText().isEmpty() && hotelText.getText().isEmpty() && checkinText.getText().isEmpty() && checkinText.getText().isEmpty() && checkoutText.getText().isEmpty() && roomText.getText().isEmpty() && adultsText.getText().isEmpty() && childrenText.getText().isEmpty()) 
+    	{
+    		new Alert(Alert.AlertType.ERROR, "All infomation is blank, please type in you email then press search to load your information").showAndWait();
     	}
-    	if(emailText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
-    	}
-    	
-    	//check for valid email address
-    	if(!emailText.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
-    		fields = "incomplete";
-    		emailText.clear();
-    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();	
-    	}
-  
-    	if(checkinText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
-    	}
-    	
-    	//check for correct date format
-    	if(!checkinText.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();    		
-    	}
-    	
-    	if(checkoutText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a check out date").showAndWait();
-    	}
-    	
-    	//check for correct date format
-    	if(!checkoutText.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check out date (mm/dd/yyyy)").showAndWait();
-    		
-    	}
-    	
-    	if(roomText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
-    	}
-    	
-    	if(adultsText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
-    	}
-    	
-    	if(childrenText.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
+    	else 
+    	{
+	    	if(nameText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
+	    	}
+	    	if(emailText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
+	    	}
+	    	
+	    	if(hotelText.getText().isEmpty())
+	    	{
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
+	    	}
+	    	
+	    	//check for valid email address
+	    	if(!emailText.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
+	                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
+	    		fields = "incomplete";
+	    		emailText.clear();
+	    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();	
+	    	}
+	  
+	    	if(checkinText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
+	    	}
+	    	
+	    	//check for correct date format
+	    	if(!checkinText.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();    		
+	    	}
+	    	
+	    	if(checkoutText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter a check out date").showAndWait();
+	    	}
+	    	
+	    	//check for correct date format
+	    	if(!checkoutText.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check out date (mm/dd/yyyy)").showAndWait();
+	    		
+	    	}
+	    	
+	    	if(roomText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
+	    	}
+	    	
+	    	if(adultsText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
+	    	}
+	    	
+	    	if(childrenText.getText().isEmpty()) {
+	    		fields = "incomplete";
+	    		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
+	    	}
     	}
 	}
 	
@@ -126,7 +138,6 @@ public class Model {
 
 	public static void addHotel(String hotelSelection, String[] hotelArray, int arrayIndex, boolean match) {
 		if(!match) { 
-			
 			HotelSelectionController.hotelArray[HotelSelectionController.arrayIndex] = HotelSelectionController.hotelSelection; //save hotelSelection to an index in hotelArray
 			HotelSelectionController.arrayIndex++; //increment hotelIndex for next entry
 				Alert a = new Alert(Alert.AlertType.CONFIRMATION, HotelSelectionController.hotelSelection + " has been successfully added.");

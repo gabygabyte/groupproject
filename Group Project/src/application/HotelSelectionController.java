@@ -42,8 +42,7 @@ public class HotelSelectionController {
 		window.setScene(scene);
 		window.show();
 	}
-	
-	
+		
 	
 	/*
 	 *  This method will get the button ID and then
@@ -73,7 +72,6 @@ public class HotelSelectionController {
 	}
 	
 	
-	
 	/*
 	 * This method will clear any hotels that had been saved in the 
 	 * hotelsArray array. It will also clear hotelSelection and set
@@ -85,8 +83,7 @@ public class HotelSelectionController {
 		
 		Model.clearHotels(hotelArray, hotelSelection, arrayIndex);
 	}
-	
-	
+		
 	
 	/*
 	 * This method will check to see if the value stored

@@ -80,19 +80,19 @@ public class Model {
                     + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) ) {
         		fields = "incomplete";
         		new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").showAndWait();
-        	}
+        	} else {
     		
-    		//check for previous bookings under an email
-        	try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
-    	    	byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
-    	    	String s = new String(bytes);
-    	    	String s2 = emailText.getText();
-    	    	if(s.contains(s2) == true) {
-    	    		fields = "incomplete";
-    	    		new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();	
-    	    	}	
-    		}
-	    	
+	    		//check for previous bookings under an email
+	        	try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
+	    	    	byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
+	    	    	String s = new String(bytes);
+	    	    	String s2 = emailText.getText();
+	    	    	if(s.contains(s2) == true) {
+	    	    		fields = "incomplete";
+	    	    		new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();	
+	    	    	}	
+	    		}
+        	}
     		// Check for checkIn
 	     	if(checkinText.getText().isEmpty()) {
 	    		fields = "incomplete";

@@ -24,14 +24,14 @@ customers who don't want to spend countless hours searching for hotels and it is
 ### Bugs
  - Main Scene: No known bugs
  - Hotel Booking Scene: No known bugs
- - Booking scene:
+ - Booking scene: No known bugs
  - Editing scene: No known bugs
 
 
 ### Functionality
- - Main Scene - All functionalities of the main scene are currently working
+ - Main Scene - Two buttons to select from: book now or view/edit booking. Book now button takes you to hotel selection screen. View/edit button takes you to the view/edit screen.
  - Hotel Booking Scene - All functionalities of the hotel booking scene are currently working
- - Booking scene -
+ - Booking scene - Page where user's information will be input. The input is then stored in a file for later access in case the user needs to view/edit their booking. After being stored the information will be sent to the selected hotels so they may reach out to the user.
  - Editing scene - All functionalities of the editing scene are currently working
 
 ## Group Members

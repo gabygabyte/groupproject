@@ -129,6 +129,15 @@ public class BookingController {
     		
     	}
     	
+    	//Verify if check out date is after check in date
+    	String checkInDate1 = CheckIn.getText();
+    	String checkOutDate1 = CheckOut.getText();
+    	Date date1 = sdf.parse(checkInDate1);
+    	Date date2 = sdf.parse(checkOutDate1);
+    	if (date1.after(date2)) {
+            fields = "incomplete";
+            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
+        }
     	
     	if(NumRooms.getText().isEmpty()) {
     		fields = "incomplete";
@@ -144,20 +153,13 @@ public class BookingController {
     	} 
     	
     	    	
-    	//Verify if check out date is after check in date
-    	String checkInDate1 = CheckIn.getText();
-    	String checkOutDate1 = CheckOut.getText();
-    	Date date1 = sdf.parse(checkInDate1);
-    	Date date2 = sdf.parse(checkOutDate1);
-    	if (date1.after(date2)) {
-            fields = "incomplete";
-            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
-        }
+    	
     	
     	
     	
     	if (fields.isEmpty()) {
     		// Set Variables from text fields
+    		String name = BookingName.getText();
     		String hotels = HotelName.getText();
     		String emailAddress = Email.getText();
     		String checkInDate = CheckIn.getText();
@@ -167,7 +169,7 @@ public class BookingController {
     		int children = Integer.parseInt(NumChild.getText());
     		
     		// Merge variables into one string to be stored in hashmap
-    		String Bookings = hotels + "," + emailAddress + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
+    		String Bookings = name + "," + hotels + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
     		// Create hashmap
@@ -185,7 +187,7 @@ public class BookingController {
     		// Check for prev bookings under given name
     	
     		// If no prev bookings with same name, store info into hashmap
-    		h.put(Email.getText().toString(), Bookings);
+    		h.put(emailAddress, Bookings);
     		
     		// Store hashmap into propreties 
     		properties.putAll(h);

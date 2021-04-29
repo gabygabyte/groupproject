@@ -2,18 +2,13 @@ package application;
 
 import model.Model;//created this model class
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Properties;
 import java.util.ResourceBundle;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

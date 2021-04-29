@@ -145,7 +145,7 @@ public class EditingController implements Initializable
 	}
 	
 	@FXML
-	public void Update(ActionEvent event) throws IOException, ParseException {
+	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
 		String fields = "";
     	Model.checkEmpty(fields, nameText, emailText, checkinText, checkoutText, roomText, adultsText, childrenText);

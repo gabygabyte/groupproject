@@ -83,7 +83,7 @@
             </Button>
             <Button layoutX="623.0" layoutY="108.0" mnemonicParsing="false" onAction="#toHome" prefHeight="71.0" prefWidth="81.0" text="Home" />
             <Button layoutX="452.0" layoutY="25.0" mnemonicParsing="false" onAction="#Search" prefHeight="27.0" prefWidth="81.0" text="Search" />
-            <Button layoutX="623.0" layoutY="209.0" mnemonicParsing="false" onAction="#Update" prefHeight="71.0" prefWidth="81.0" text="Update" />
+            <Button layoutX="623.0" layoutY="209.0" mnemonicParsing="false" onAction="#updateInfo" prefHeight="71.0" prefWidth="81.0" text="Update" />
             <TextField fx:id="emailText" layoutX="50.0" layoutY="25.0" prefHeight="27.0" prefWidth="376.0" />
             <Button fx:id="hotelEdit" layoutX="500.0" layoutY="120.0" mnemonicParsing="false" onAction="#allowEdit" text="Edit">
                <padding>

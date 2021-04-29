@@ -88,8 +88,8 @@ public class BookingController implements Initializable{
     		int children = Integer.parseInt(NumChild.getText());
     		
     		// Merge variables into one string to be stored in hashmap
-    		String Bookings = name + "," + hotels + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
-    		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
+    		String Bookings = name + "*" + hotels + "*" + checkInDate + "*" + checkOutDate + "*" + String.valueOf(rooms)
+    		+ "*" + String.valueOf(adults) + "*" + String.valueOf(children);
     		
     		// Create hashmap
     		HashMap<String, String> h = new HashMap<String, String>();

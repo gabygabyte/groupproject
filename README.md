@@ -35,7 +35,7 @@ Hotel Booking Scene - All functionalities of the hotel booking scene are current
  
  *Hannah Bradley (hannahb9011)
  
- *Angelica Zamarron (angelicavs)
+ *Angelica Zamarron (angelicavz)
  
  *Mark Zimmerschied (zimmerschiedmark)
  

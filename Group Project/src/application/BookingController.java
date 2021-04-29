@@ -78,10 +78,7 @@ public class BookingController implements Initializable{
     }
 
     @FXML
-    void saveBooking(ActionEvent event) throws IOException, ParseException {
-    	
-    	
-    	
+    void saveBooking(ActionEvent event) throws IOException, ParseException { 	
     	
     	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	//Check for empty fields
@@ -137,22 +134,23 @@ public class BookingController implements Initializable{
     	}
     	
     	//Verify if check out date is after check in date
-    	String checkInDate1 = CheckIn.getText();
-    	String checkOutDate1 = CheckOut.getText();
-    	Date date1 = sdf.parse(checkInDate1);
-    	Date date2 = sdf.parse(checkOutDate1);
-    	if (date1.after(date2)) {
-            fields = "incomplete";
-            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
-        }
-    	
-    	//Verify that the date chosen has not already passed
-    	java.util.Date now=new java.util.Date();
-    	if(now.after(date1) | now.after(date2)) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+    	if(CheckIn.getText().isEmpty() == false && CheckOut.getText().isEmpty() == false ) {
+    		
+    		Date date1 = sdf.parse(CheckIn.getText());
+    		Date date2 = sdf.parse(CheckOut.getText());
+    		
+    		if (date1.after(date2)) {
+    			fields = "incomplete";
+    			new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
+    		}
+    	 	
+    		//Verify that the date chosen has not already passed
+    		java.util.Date now=new java.util.Date();
+    		if(now.after(date1) || now.after(date2)) {
+    			fields = "incomplete";
+    			new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+    		}
     	}
-    	
     	if(NumRooms.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
@@ -197,10 +195,8 @@ public class BookingController implements Initializable{
     		for(String key: properties.stringPropertyNames()) {
     			h.put(key, properties.get(key).toString());
     		}	
-    		
-    		// Check for prev bookings under given name
-    	
-    		// If no prev bookings with same name, store info into hashmap
+    		    	
+    		// If no prev bookings with same email, store info into hashmap
     		h.put(emailAddress, Bookings);
     		
     		// Store hashmap into propreties 

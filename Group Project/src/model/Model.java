@@ -72,7 +72,7 @@ public class Model {
     		// Check for location
     		if(location.getText().isEmpty()) {
     			fields = "incomplete";
-    			new Alert(Alert.AlertType.ERROR, "Please enter a location");
+    			new Alert(Alert.AlertType.ERROR, "Please enter a location").showAndWait();
     		}
     		
     		// Check for name

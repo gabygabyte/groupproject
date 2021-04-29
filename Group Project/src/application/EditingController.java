@@ -2,18 +2,13 @@ package application;
 
 import model.Model;//created this model class
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Properties;
 import java.util.ResourceBundle;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -147,11 +142,10 @@ public class EditingController implements Initializable
 	@FXML
 	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
-		String fields = "";
-    	Model.checkEmpty(fields, nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
+		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
     	//Verify if check out date is after check in date
-    	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
+    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	String checkInDate = checkinText.getText();
     	String checkOutDate = checkoutText.getText();
     	Date date1 = sdf.parse(checkInDate);
@@ -160,6 +154,13 @@ public class EditingController implements Initializable
             fields = "incomplete";
             new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
         }
+    	
+    	//Verify that the date chosen has not already passed
+    	java.util.Date now=new java.util.Date();
+    	if(now.after(date1) | now.after(date2)) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+    	}
     	
     	if (fields.isEmpty()) {
     		String name = nameText.getText();
@@ -176,11 +177,6 @@ public class EditingController implements Initializable
     		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
     		
     		Model.saveInfo(emailAddress, Bookings);
-    		
-    		// Display confirmation message
-    		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
-    			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
-    			+ "from them shortly.").showAndWait();
     		
     		// Return to main page
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));

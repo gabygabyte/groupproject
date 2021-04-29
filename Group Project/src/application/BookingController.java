@@ -79,20 +79,31 @@ public class BookingController {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
     	}
-    	if(Email.getText().isEmpty()) {
+    	if(Email.getText().isEmpty() | (!Email.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
+                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) ) {
     		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter an email address").showAndWait();
+    		new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").showAndWait();
+    	} else {
+    		//check for previous bookings under an email
+    		try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
+	    		byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
+	    		String s = new String(bytes);
+	    		String s2 = Email.getText();
+	    		if(s.contains(s2) == true) {
+	    			fields = "incomplete";
+	    			new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();
+	    			
+	    		}
+	    		
+			}
+    	
+    	
+    	
+    	
+    	
+    	
     	}
     	
-    	//check for valid email address
-    	if(!Email.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) {
-    		fields = "incomplete";
-    		Email.clear();
-    		new Alert(Alert.AlertType.ERROR, "Please enter valid email address").showAndWait();
-    		
-    	}
-  
     	
     	if(CheckIn.getText().isEmpty()) {
     		fields = "incomplete";
@@ -131,21 +142,8 @@ public class BookingController {
     	if(NumChild.getText().isEmpty()) {
     		fields = "incomplete";
     		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
-    	}
+    	} 
     	
-    	
-    	//check for previous bookings under an email
-    	try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
-    		byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
-    		String s = new String(bytes);
-    		String s2 = Email.getText();
-    		if(s.contains(s2) == true) {
-    			fields = "incomplete";
-    			new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();
-    			
-    		}
-    		
-		}
     	
     	
     	

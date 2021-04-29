@@ -54,7 +54,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="HotelName" layoutX="526.0" layoutY="30.0" />
+      <TextField fx:id="HotelName" editable="false" layoutX="526.0" layoutY="30.0" />
       <TextField fx:id="BookingName" layoutX="526.0" layoutY="70.0" />
       <TextField fx:id="Email" layoutX="526.0" layoutY="110.0" />
       <TextField fx:id="CheckIn" layoutX="526.0" layoutY="150.0" />

@@ -88,8 +88,8 @@ public class BookingController implements Initializable{
     		int children = Integer.parseInt(NumChild.getText());
     		
     		// Merge variables into one string to be stored in hashmap
-    		String Bookings = name + "," + hotels + "," + checkInDate + "," + checkOutDate + "," + String.valueOf(rooms)
-    		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
+    		String Bookings = name + ":" + hotels + ":" + checkInDate + ":" + checkOutDate + ":" + String.valueOf(rooms)
+    		+ ":" + String.valueOf(adults) + ":" + String.valueOf(children);
     		
     		// Create hashmap
     		HashMap<String, String> h = new HashMap<String, String>();
@@ -115,11 +115,15 @@ public class BookingController implements Initializable{
     		// Close writer
     		writer.close();
     		
+    		
     		// Display confirmation message
     		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully saved!" 
     			+ "\nYour information has been sent to the selected hotels and you will hear "
     			+ "from them shortly. \nYou can select the view/edit option on the main menu"
     			+ " if you would like to edit your booking.").showAndWait();
+    		
+    		// Clear hotel selections
+    		Model.clearHotels(HotelSelectionController.hotelArray, HotelSelectionController.hotelSelection, HotelSelectionController.arrayIndex);
     		
     		// Return to main page
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));

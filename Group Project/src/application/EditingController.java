@@ -148,7 +148,7 @@ public class EditingController implements Initializable
 	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
 		String fields = "";
-    	Model.checkEmpty(fields, nameText, emailText, checkinText, checkoutText, roomText, adultsText, childrenText);
+    	Model.checkEmpty(fields, nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
     	//Verify if check out date is after check in date
     	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
@@ -189,7 +189,6 @@ public class EditingController implements Initializable
         	Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	window.setScene(scene);
         	window.show();
-    	
     	}
 	}
 	

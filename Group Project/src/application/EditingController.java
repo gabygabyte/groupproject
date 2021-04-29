@@ -177,8 +177,6 @@ public class EditingController implements Initializable
     		String hotels = hotelText.getText();
     		String location = locationText.getText();
     		String emailAddress = emailText.getText();
-    		String checkIn = checkinText.getText();
-    		String checkOut = checkoutText.getText();
     		int rooms = Integer.parseInt(roomText.getText());
     		int adults = Integer.parseInt(adultsText.getText());
     		int children = Integer.parseInt(childrenText.getText());

@@ -6,16 +6,21 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -24,7 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class BookingController {
+public class BookingController implements Initializable{
 
     @FXML
     private TextField NumChild;
@@ -58,6 +63,9 @@ public class BookingController {
     
     @FXML
     private AnchorPane bookingBack;
+    
+   
+    
 
     @FXML
     void goBack(ActionEvent event) throws IOException {
@@ -71,6 +79,10 @@ public class BookingController {
 
     @FXML
     void saveBooking(ActionEvent event) throws IOException, ParseException {
+    	
+    	
+    	
+    	
     	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	//Check for empty fields
     	String fields = "";
@@ -95,12 +107,7 @@ public class BookingController {
 	    			
 	    		}
 	    		
-			}
-    	
-    	
-    	
-    	
-    	
+			}	
     	
     	}
     	
@@ -138,6 +145,13 @@ public class BookingController {
             fields = "incomplete";
             new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
         }
+    	
+    	//Verify that the date chosen has not already passed
+    	java.util.Date now=new java.util.Date();
+    	if(now.after(date1) | now.after(date2)) {
+    		fields = "incomplete";
+    		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+    	}
     	
     	if(NumRooms.getText().isEmpty()) {
     		fields = "incomplete";
@@ -215,6 +229,15 @@ public class BookingController {
     	
     	}
     }
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		HotelName.setText("FIX ME");
+		
+	}
+
+	
 
 }
 

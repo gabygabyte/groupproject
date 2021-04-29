@@ -1,22 +1,15 @@
 package application;
 
-import java.io.BufferedReader;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.ResourceBundle;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import model.Model;
 
 public class BookingController implements Initializable{
 
@@ -78,98 +72,12 @@ public class BookingController implements Initializable{
     }
 
     @FXML
-    void saveBooking(ActionEvent event) throws IOException, ParseException {
+    void saveBooking(ActionEvent event) throws IOException, ParseException { 	
     	
     	
-    	
-    	
-    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
     	//Check for empty fields
-    	String fields = "";
-    	
-    	if(BookingName.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter your name").showAndWait();
-    	}
-    	if(Email.getText().isEmpty() | (!Email.getText().matches("^[_A-Za-z0-9-+]+(\\.[_A-Za-z0-9-]+)*@"
-                + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")) ) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a valid email address").showAndWait();
-    	} else {
-    		//check for previous bookings under an email
-    		try (BufferedReader br = new BufferedReader(new FileReader("bookings.properties"))) {
-	    		byte[] bytes = Files.readAllBytes(Paths.get("bookings.properties"));
-	    		String s = new String(bytes);
-	    		String s2 = Email.getText();
-	    		if(s.contains(s2) == true) {
-	    			fields = "incomplete";
-	    			new Alert(Alert.AlertType.ERROR, "Booking already present under that email").showAndWait();
-	    			
-	    		}
-	    		
-			}	
-    	
-    	}
-    	
-    	
-    	if(CheckIn.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a check in date").showAndWait();
-    	}
-    	
-    	//check for correct date format
-    	if(!CheckIn.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check in date (mm/dd/yyyy)").showAndWait();
-    		
-    	}
-    	    	
-    	if(CheckOut.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a check out date").showAndWait();
-    	}
-    	
-    	//check for correct date format
-    	if(!CheckOut.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter a valid check out date (mm/dd/yyyy)").showAndWait();
-    		
-    	}
-    	
-    	//Verify if check out date is after check in date
-    	String checkInDate1 = CheckIn.getText();
-    	String checkOutDate1 = CheckOut.getText();
-    	Date date1 = sdf.parse(checkInDate1);
-    	Date date2 = sdf.parse(checkOutDate1);
-    	if (date1.after(date2)) {
-            fields = "incomplete";
-            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
-        }
-    	
-    	//Verify that the date chosen has not already passed
-    	java.util.Date now=new java.util.Date();
-    	if(now.after(date1) | now.after(date2)) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
-    	}
-    	
-    	if(NumRooms.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter number of rooms needed").showAndWait();
-    	}
-    	if(NumAdults.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
-    	}
-    	if(NumChild.getText().isEmpty()) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
-    	} 
-    	
-    	    	
-    	
-    	
-    	
+    	String fields = Model.checkFields(BookingName, Email, HotelName, CheckIn, CheckOut, 
+    			NumRooms, NumAdults, NumChild);
     	
     	if (fields.isEmpty()) {
     		// Set Variables from text fields
@@ -197,16 +105,13 @@ public class BookingController implements Initializable{
     		for(String key: properties.stringPropertyNames()) {
     			h.put(key, properties.get(key).toString());
     		}	
-    		
-    		// Check for prev bookings under given name
-    	
-    		// If no prev bookings with same name, store info into hashmap
+    		    	
     		h.put(emailAddress, Bookings);
     		
-    		// Store hashmap into propreties 
+    		// Store hashmap into properties 
     		properties.putAll(h);
     		
-    		// Write propreties to file
+    		// Write properties to file
     		FileOutputStream writer = new FileOutputStream(file);
     		properties.store(writer, null);
     		

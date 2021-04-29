@@ -42,8 +42,7 @@ public class HotelSelectionController {
 		window.setScene(scene);
 		window.show();
 	}
-	
-	
+		
 	
 	/*
 	 *  This method will get the button ID and then
@@ -73,7 +72,6 @@ public class HotelSelectionController {
 	}
 	
 	
-	
 	/*
 	 * This method will clear any hotels that had been saved in the 
 	 * hotelsArray array. It will also clear hotelSelection and set
@@ -85,8 +83,7 @@ public class HotelSelectionController {
 		
 		Model.clearHotels(hotelArray, hotelSelection, arrayIndex);
 	}
-	
-	
+		
 	
 	/*
 	 * This method will check to see if the value stored
@@ -120,13 +117,19 @@ public class HotelSelectionController {
 	 */
 	@FXML
 	public void bookingScene(ActionEvent event) throws IOException {
-
+		
+		if(hotelArray[0] != null) {
 		mainPane = FXMLLoader.load(getClass().getResource("Booking.fxml")); //
 		Scene scene = new Scene(mainPane);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 		window.setScene(scene);
 		window.show();
+		}
+		else {
+			Alert a = new Alert(Alert.AlertType.ERROR, "Just must select at least one hotel brand.");
+			a.show();//show confirmation message
+		}
 	}
 	
 }

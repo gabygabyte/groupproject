@@ -2,18 +2,13 @@ package application;
 
 import model.Model;//created this model class
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Properties;
 import java.util.ResourceBundle;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -147,8 +142,7 @@ public class EditingController implements Initializable
 	@FXML
 	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
-		String fields = "";
-    	Model.checkEmpty(fields, nameText, emailText, checkinText, checkoutText, roomText, adultsText, childrenText);
+		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
     	
     	//Verify if check out date is after check in date
     	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
@@ -184,11 +178,6 @@ public class EditingController implements Initializable
     		
     		Model.saveInfo(emailAddress, Bookings);
     		
-    		// Display confirmation message
-    		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
-    			+ "\nYour information has been updated and sent to the selected hotels and you will hear "
-    			+ "from them shortly.").showAndWait();
-    		
     		// Return to main page
     		FXMLLoader loader = new FXMLLoader(getClass().getResource("Main.fxml"));
         	editingPanel = loader.load();  	
@@ -196,7 +185,6 @@ public class EditingController implements Initializable
         	Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         	window.setScene(scene);
         	window.show();
-    	
     	}
 	}
 	

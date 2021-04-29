@@ -10,23 +10,29 @@ to the chosen hotel chain so that those hotel chains can then send their offers 
 customers who don't want to spend countless hours searching for hotels and it is also a great lead generator for hotels.
 
 ### How to run the application
- instructions for running your application
+ - Download and import the project into your IDE manually
+ - If you habe EGit installed you can import the project directly from GitHub
 
 
 ### Requirements
-such as internet access, etc
-Versions or other requirements:
-If you use an API, special installation, or version of Java (above 8) or SceneBuilder (above3)
+ - IDE of choice (we used Eclipse)
+ - Java (Java 8, jre1.8.0_221 or newer)
+ - JavaFX 
+ - SceneBuilder if editing FXML files
 
 
 ### Bugs
-Known bugs if any
+ - Main Scene: No known bugs
+ - Hotel Booking Scene: No known bugs
+ - Booking scene:
+ - Editing scene:
 
 
 ### Functionality
-
+Main Scene - All functionalities of the main scene are currently working
 Hotel Booking Scene - All functionalities of the hotel booking scene are currently working
-
+Booking scene -
+Editing scene -
 
 ## Group Members
  *Gabriela Castellanos (gabygabyte) 

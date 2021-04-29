@@ -46,8 +46,10 @@ public class Model {
 				+ ", click update when all fields are properly up to date.").showAndWait();
 	}
 	
-	public static void checkEmpty(String fields, TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
+	public static String checkEmpty(TextField nameText, TextField emailText, TextField hotelText, TextField checkinText, 
 			TextField checkoutText, TextField roomText, TextField adultsText, TextField childrenText) {
+		
+		String fields = "";
     	if(nameText.getText().isEmpty() && hotelText.getText().isEmpty() && checkinText.getText().isEmpty() && checkinText.getText().isEmpty() && checkoutText.getText().isEmpty() && roomText.getText().isEmpty() && adultsText.getText().isEmpty() && childrenText.getText().isEmpty()) 
     	{
     		new Alert(Alert.AlertType.ERROR, "All infomation is blank, please type in you email then press search to load your information").showAndWait();
@@ -115,6 +117,8 @@ public class Model {
 	    		new Alert(Alert.AlertType.ERROR, "Please enter the number of children").showAndWait();
 	    	}
     	}
+    	
+    	return fields;
 	}
 	
 	public static void saveInfo(String emailAddress, String Bookings) throws IOException {
@@ -126,20 +130,20 @@ public class Model {
 		for(String key: properties.stringPropertyNames()) {
 			h.put(key, properties.get(key).toString());
 		}	
-	
+		
 		// Store info into hashmap
 		h.put(emailAddress, Bookings);
-		
+			
 		// Store hash map into properties 
 		properties.putAll(h);
-		
+			
 		// Write properties to file
 		FileOutputStream writer = new FileOutputStream(file);
 		properties.store(writer, null);
-		
+			
 		// Close writer
 		writer.close();
-		
+			
 		// Display confirmation message
 		new Alert(Alert.AlertType.CONFIRMATION, "Booking successfully updated!" 
 			+ "\nYour information has been updated and sent to the selected hotels and you will hear "

@@ -149,7 +149,8 @@ public class Model {
 	    		new Alert(Alert.AlertType.ERROR, "Please enter the number of adults").showAndWait();
 	    	}
 	    	// Check for at least 1 adult
-	    	if(adultsText.getText() == "0") {
+	    	int numAdults = Integer.parseInt(adultsText.getText());
+	    	if(numAdults == 0) {
 	    		fields = "incomplete";
 	    		new Alert(Alert.AlertType.ERROR, "Number of adults should be more than 0").showAndWait();
 	    	}

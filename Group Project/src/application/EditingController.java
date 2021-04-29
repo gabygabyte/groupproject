@@ -145,26 +145,26 @@ public class EditingController implements Initializable
 	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
 		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
-    	
-		//Verify if check out date is after check in date
-    	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
-    	String checkInDate = checkinText.getText();
-    	String checkOutDate = checkoutText.getText();
-    	Date date1 = sdf.parse(checkInDate);
-    	Date date2 = sdf.parse(checkOutDate);
-    	if (date1.after(date2)) {
-            fields = "incomplete";
-            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
-        }
-    	
-    	//Verify that the date chosen has not already passed
-    	java.util.Date now=new java.util.Date();
-    	if(now.after(date1) | now.after(date2)) {
-    		fields = "incomplete";
-    		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
-    	}
-    	
+
     	if (fields.isEmpty()) {
+    		//Verify if check out date is after check in date
+        	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        	String checkInDate = checkinText.getText();
+        	String checkOutDate = checkoutText.getText();
+        	Date date1 = sdf.parse(checkInDate);
+        	Date date2 = sdf.parse(checkOutDate);
+        	if (date1.after(date2)) {
+                fields = "incomplete";
+                new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
+            }
+        	
+        	//Verify that the date chosen has not already passed
+        	java.util.Date now=new java.util.Date();
+        	if(now.after(date1) | now.after(date2)) {
+        		fields = "incomplete";
+        		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+        	}
+        	
     		String name = nameText.getText();
     		String hotels = hotelText.getText();
     		String emailAddress = emailText.getText();

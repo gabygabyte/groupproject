@@ -2,18 +2,13 @@ package application;
 
 import model.Model;//created this model class
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Properties;
 import java.util.ResourceBundle;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -45,6 +40,8 @@ public class EditingController implements Initializable
     @FXML
     private TextField checkoutText;
     @FXML
+    private TextField locationText;
+    @FXML
     private Button hotelEdit;
     @FXML
     private TextField hotelText;
@@ -62,6 +59,8 @@ public class EditingController implements Initializable
     private Button roomsEdit;
     @FXML
     private Button adultsEdit;
+    @FXML
+    private Button locationEdit;
 
 	@FXML
 	public void toHome(ActionEvent event) throws IOException {
@@ -86,16 +85,17 @@ public class EditingController implements Initializable
     	 }
     	 else 
     	 { 
-	    	 String[] infoStr = info.split(","); //split user info by the commas added in the booking process
+	    	 String[] infoStr = info.split(":"); //split user info by the colons added in the booking process
 	    	 
 	    	 //put all the info in the proper text box
 	    	 nameText.setText(infoStr[0]);
 	    	 hotelText.setText(infoStr[1]);
-	    	 checkinText.setText(infoStr[2]);
-	    	 checkoutText.setText(infoStr[3]);
-	    	 roomText.setText(infoStr[4]);
-	    	 adultsText.setText(infoStr[5]);
-	    	 childrenText.setText(infoStr[6]);
+	    	 locationText.setText(infoStr[2]);
+	    	 checkinText.setText(infoStr[3]);
+	    	 checkoutText.setText(infoStr[4]);
+	    	 roomText.setText(infoStr[5]);
+	    	 adultsText.setText(infoStr[6]);
+	    	 childrenText.setText(infoStr[7]);
     	 }
 	}
 	
@@ -115,6 +115,11 @@ public class EditingController implements Initializable
 		if(hotelEdit == pressedButton) {
 			hotelText.clear();
 			type = "hotels";
+			Model.printAlert(type);
+		}
+		if(locationEdit == pressedButton) {
+			locationText.clear();
+			type = "location";
 			Model.printAlert(type);
 		}
 		if(checkinEdit == pressedButton) {
@@ -147,32 +152,38 @@ public class EditingController implements Initializable
 	@FXML
 	public void updateInfo(ActionEvent event) throws IOException, ParseException {
 		//Check for empty fields
-		String fields = Model.checkFields(nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
-    	
-    	//Verify if check out date is after check in date
-    	SimpleDateFormat sdf = new SimpleDateFormat("mm/dd/yyyy");
-    	String checkInDate = checkinText.getText();
-    	String checkOutDate = checkoutText.getText();
-    	Date date1 = sdf.parse(checkInDate);
-    	Date date2 = sdf.parse(checkOutDate);
-    	if (date1.after(date2)) {
-            fields = "incomplete";
-            new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
-        }
-    	
+		String fields = Model.checkFields(locationText, nameText, emailText, hotelText, checkinText, checkoutText, roomText, adultsText, childrenText);
+
     	if (fields.isEmpty()) {
+    		//Verify if check out date is after check in date
+        	SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        	String checkInDate = checkinText.getText();
+        	String checkOutDate = checkoutText.getText();
+        	Date date1 = sdf.parse(checkInDate);
+        	Date date2 = sdf.parse(checkOutDate);
+        	if (date1.after(date2)) {
+                fields = "incomplete";
+                new Alert(Alert.AlertType.ERROR, "Conflicting dates: your check out date is before your check in date! ").showAndWait();
+            }
+        	
+        	//Verify that the date chosen has not already passed
+        	java.util.Date now=new java.util.Date();
+        	if(now.after(date1) | now.after(date2)) {
+        		fields = "incomplete";
+        		new Alert(Alert.AlertType.ERROR, "Invalid Date: Date chosen no longer available").showAndWait();
+        	}
+        	
     		String name = nameText.getText();
     		String hotels = hotelText.getText();
+    		String location = locationText.getText();
     		String emailAddress = emailText.getText();
-    		String checkIn = checkinText.getText();
-    		String checkOut = checkoutText.getText();
     		int rooms = Integer.parseInt(roomText.getText());
     		int adults = Integer.parseInt(adultsText.getText());
     		int children = Integer.parseInt(childrenText.getText());
     		
     		// Merge variables into one string to be stored in hash map
-    		String Bookings = name + "," + hotels + "," + checkIn + "," + checkOut + "," + String.valueOf(rooms)
-    		+ "," + String.valueOf(adults) + "," + String.valueOf(children);
+    		String Bookings = name + ":" + hotels + ":" + location + ":" + checkInDate + ":" + checkOutDate + ":" + String.valueOf(rooms)
+    		+ ":" + String.valueOf(adults) + ":" + String.valueOf(children);
     		
     		Model.saveInfo(emailAddress, Bookings);
     		

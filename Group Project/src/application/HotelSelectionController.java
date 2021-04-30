@@ -82,6 +82,8 @@ public class HotelSelectionController {
 	public void clearHotels(ActionEvent event) throws IOException {
 		
 		Model.clearHotels(hotelArray, hotelSelection, arrayIndex);
+		Alert a = new Alert(Alert.AlertType.CONFIRMATION, "All selections have been cleared.");
+		a.show();//show confirmation message
 	}
 		
 	
@@ -127,7 +129,7 @@ public class HotelSelectionController {
 		window.show();
 		}
 		else {
-			Alert a = new Alert(Alert.AlertType.ERROR, "Just must select at least one hotel brand.");
+			Alert a = new Alert(Alert.AlertType.ERROR, "You must select at least one hotel brand.");
 			a.show();//show confirmation message
 		}
 	}
